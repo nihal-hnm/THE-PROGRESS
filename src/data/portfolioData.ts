@@ -68,7 +68,7 @@ export const projects: Project[] = [
   {
     title: "Couch Critics",
     tagline: "A comprehensive cinema journal and entertainment tracker recording watch journeys, providing smart OTT provider redirection, and organizing personal movie/show catalogs.",
-    year: "2024",
+    year: "3/10/2026",
     role: "Full-Stack Engineer & Creator",
     techStack: [
       "Next.js 16 (App Router)",
@@ -93,28 +93,35 @@ export const projects: Project[] = [
 
 export const engineeringLogs: EngineeringLog[] = [
   {
-    date: "2024-10-08",
+    date: "08/10/2026",
     topic: "OTT Platform Discovery & TMDB Watch Provider Integration",
     status: "Completed",
-    notes: "Mapped TMDB watch provider streaming APIs to automatically redirect users to available regional OTT platforms (Netflix, Prime Video, Disney+). Designed graceful fallbacks for streaming region variations.",
+    notes: "Mapped TMDB watch provider streaming APIs to automatically redirect users to available regional OTT platforms (Netflix, Prime Video, JioHotstar). Designed graceful fallbacks for streaming region variations.",
     tags: ["TMDB", "APIs", "Next.js", "CouchCritics"],
   },
   {
-    date: "2024-09-24",
+    date: "03/10/2026",
+    topic: "Couch Critics Launch & Midnight Cinema Architecture",
+    status: "Completed",
+    notes: "Officially shipped and launched Couch Critics v1.0. Configured complete telemetry, full-catalog search, dynamic poster caching, and instant watchlist classification.",
+    tags: ["Next.js 16", "Supabase", "Production", "Launch"],
+  },
+  {
+    date: "28/09/2026",
+    topic: "Next.js 16 App Router & React 19 Hybrid State Synchronization",
+    status: "Completed",
+    notes: "Benchmarked client-side optimistic UI updates with React 19 and local cache fallback, ensuring zero-latency transitions when logging ratings across extensive media catalogues.",
+    tags: ["React 19", "Next.js 16", "TypeScript", "Performance"],
+  },
+  {
+    date: "22/09/2026",
     topic: "Row-Level Security (RLS) & Multi-Tier Watchlist Schema in Supabase",
     status: "Completed",
     notes: "Modeled relational PostgreSQL schemas supporting tri-state watch status tracking ('Watched', 'Watching', 'Want to Watch'). Configured strict RLS policies to isolate and protect user review logs.",
     tags: ["Supabase", "PostgreSQL", "RLS", "Database"],
   },
   {
-    date: "2024-10-02",
-    topic: "Next.js 16 App Router & React 19 Hybrid State Synchronization",
-    status: "Currently Building",
-    notes: "Benchmarked client-side optimistic UI updates with React 19 and local cache fallback, ensuring zero-latency transitions when logging ratings across extensive media catalogues.",
-    tags: ["React 19", "Next.js 16", "TypeScript", "Performance"],
-  },
-  {
-    date: "2024-08-18",
+    date: "15/09/2026",
     topic: "Python Scripting & Core Computer Science Foundations",
     status: "Researching",
     notes: "Deepening algorithmic understanding and automation workflows with Python. Exploring data manipulation pipelines and algorithmic problem-solving alongside undergraduate studies.",
@@ -130,13 +137,13 @@ export const milestones: Milestone[] = [
     description: "Pursuing Bachelor of Technology in CSE. Actively studying core computing principles, data structures, algorithms, and applied software engineering.",
   },
   {
-    date: "2024",
+    date: "3/10/2026",
     title: "Shipped Couch Critics (Cinema Journal)",
     context: "Production Build",
     description: "Designed and deployed a full-stack media journaling platform with live TMDB integration, OTT provider routing, and Supabase PostgreSQL persistence.",
   },
   {
-    date: "2024",
+    date: "Sep 2026",
     title: "Modern Full-Stack Exploration & Runtimes",
     context: "Continuous Learning",
     description: "Hands-on exploration of next-generation technologies: Next.js 16 App Router, React 19, TypeScript typing systems, and relational cloud architectures.",

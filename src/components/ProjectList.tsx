@@ -156,6 +156,10 @@ export function ProjectList({ projects }: ProjectListProps) {
                           <span className="text-[#131210] font-semibold">{project.role}</span>
                         </div>
                         <div className="flex items-center gap-2">
+                          <span className="text-[#716E68]">CREATED:</span>
+                          <span className="text-[#131210] font-semibold">{project.year}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
                           <span className="text-[#716E68]">STATUS:</span>
                           <span className="text-[#E6552F] font-semibold flex items-center gap-1">
                             <ShieldCheck className="w-3.5 h-3.5" />

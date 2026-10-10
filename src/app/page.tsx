@@ -12,10 +12,14 @@ import { EngineeringLog } from "@/components/EngineeringLog";
 import { Milestones } from "@/components/Milestones";
 import { Toolbox } from "@/components/Toolbox";
 import { Footer } from "@/components/Footer";
+import { CursorRadialBackground } from "@/components/CursorRadialBackground";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#F3F0EA] relative isolate overflow-x-hidden">
+      {/* Dynamic Cursor-Following Radial Gradient Spotlight Layer */}
+      <CursorRadialBackground />
+
       {/* Dynamic Ambient Graphics Layer behind Glass */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
         {/* Soft grid matrix texture */}

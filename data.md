@@ -27,7 +27,7 @@ Full Name: Nihal Mahore
 
 ### 3. Featured Projects *(Share 2–4 projects)*
 For each project:
-* **Project Name:Couch critics
+* **Project Name:** Couch critics (Created: 3/10/2026)
 * **Summary & Problem Solved: A cinema journal that records your watching of shows and movies also can redirect you to the available ott platform you can add three type of category watched, watching and want to watch and also you can give your personal rating 
 * **Technologies Used:### Tech Stack Summary
 
