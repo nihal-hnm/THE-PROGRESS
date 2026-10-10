@@ -10,36 +10,36 @@ export function Toolbox({ categories }: ToolboxProps) {
     if (category.includes("Languages")) {
       return {
         accent: "#F59E0B",
-        gradient: "from-amber-500/25 via-orange-500/10 to-transparent",
-        topLine: "bg-gradient-to-r from-amber-400 via-orange-400 to-transparent",
-        badge: "bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30",
-        itemHover: "hover:text-amber-600 dark:hover:text-amber-300 hover:border-amber-500/40 hover:bg-amber-500/5",
+        gradient: "from-amber-500/15 via-orange-500/5 to-transparent",
+        topLine: "bg-gradient-to-r from-transparent via-amber-400/80 to-transparent",
+        badge: "liquid-pill-amber",
+        itemHover: "hover:text-amber-600 dark:hover:text-amber-300 hover:border-amber-500/30",
       };
     }
     if (category.includes("Frontend")) {
       return {
         accent: "#06B6D4",
-        gradient: "from-cyan-500/25 via-blue-500/10 to-transparent",
-        topLine: "bg-gradient-to-r from-cyan-400 via-blue-400 to-transparent",
-        badge: "bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border-cyan-500/30",
-        itemHover: "hover:text-cyan-600 dark:hover:text-cyan-300 hover:border-cyan-500/40 hover:bg-cyan-500/5",
+        gradient: "from-cyan-500/15 via-blue-500/5 to-transparent",
+        topLine: "bg-gradient-to-r from-transparent via-cyan-400/80 to-transparent",
+        badge: "liquid-pill-cyan",
+        itemHover: "hover:text-cyan-600 dark:hover:text-cyan-300 hover:border-cyan-500/30",
       };
     }
     if (category.includes("Backend")) {
       return {
         accent: "#10B981",
-        gradient: "from-emerald-500/25 via-teal-500/10 to-transparent",
-        topLine: "bg-gradient-to-r from-emerald-400 via-teal-400 to-transparent",
-        badge: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30",
-        itemHover: "hover:text-emerald-600 dark:hover:text-emerald-300 hover:border-emerald-500/40 hover:bg-emerald-500/5",
+        gradient: "from-emerald-500/15 via-teal-500/5 to-transparent",
+        topLine: "bg-gradient-to-r from-transparent via-emerald-400/80 to-transparent",
+        badge: "liquid-pill-emerald",
+        itemHover: "hover:text-emerald-600 dark:hover:text-emerald-300 hover:border-emerald-500/30",
       };
     }
     return {
       accent: "#8B5CF6",
-      gradient: "from-purple-500/25 via-indigo-500/10 to-transparent",
-      topLine: "bg-gradient-to-r from-purple-400 via-indigo-400 to-transparent",
-      badge: "bg-purple-500/15 text-purple-700 dark:text-purple-300 border-purple-500/30",
-      itemHover: "hover:text-purple-600 dark:hover:text-purple-300 hover:border-purple-500/40 hover:bg-purple-500/5",
+      gradient: "from-purple-500/15 via-indigo-500/5 to-transparent",
+      topLine: "bg-gradient-to-r from-transparent via-indigo-400/80 to-transparent",
+      badge: "liquid-pill-indigo",
+      itemHover: "hover:text-indigo-600 dark:hover:text-indigo-300 hover:border-indigo-500/30",
     };
   };
 
@@ -48,7 +48,7 @@ export function Toolbox({ categories }: ToolboxProps) {
       {/* Section Header */}
       <div className="flex items-baseline justify-between mb-6">
         <div>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/30 mb-2">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold liquid-pill-amber mb-2">
             Section 04
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-semibold text-[#131210]">
@@ -72,27 +72,27 @@ export function Toolbox({ categories }: ToolboxProps) {
           return (
             <div
               key={cat.category}
-              className="p-6 rounded-[12px] glass-panel glass-card-hover flex flex-col justify-between relative overflow-hidden group border border-white/80 shadow-md"
+              className="p-6 rounded-[14px] glass-panel glass-card-hover flex flex-col justify-between relative overflow-hidden group border border-white/80 dark:border-white/10 shadow-lg"
             >
-              {/* Top Gradient Edge Accent */}
-              <div className={`absolute top-0 left-0 right-0 h-[2.5px] ${theme.topLine}`} />
+              {/* Top Liquid Prism Edge */}
+              <div className={`absolute top-0 left-0 right-0 h-[1.5px] pointer-events-none ${theme.topLine}`} />
 
-              {/* Decorative vibrant glow in top corner */}
+              {/* Decorative liquid glow in top corner */}
               <div
                 className={`absolute top-0 right-0 w-36 h-36 bg-gradient-to-bl ${theme.gradient} rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500`}
               />
 
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-mono text-[0.8rem] tracking-wider uppercase text-[#131210] font-semibold flex items-center gap-2">
+                  <h3 className="font-mono text-[0.8rem] tracking-wider uppercase text-[#131210] dark:text-[#F3F1EC] font-semibold flex items-center gap-2">
                     <span
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: theme.accent }}
+                      className="w-2 h-2 rounded-full shadow-[0_0_6px_currentColor]"
+                      style={{ backgroundColor: theme.accent, color: theme.accent }}
                     />
                     <span>{cat.category}</span>
                   </h3>
                   <span
-                    className={`font-mono text-[0.66rem] px-2 py-0.5 rounded-full font-semibold border ${theme.badge}`}
+                    className={`font-mono text-[0.66rem] px-2.5 py-0.5 rounded-full font-semibold ${theme.badge}`}
                   >
                     {cat.items.length} units
                   </span>

@@ -44,7 +44,7 @@ export function Interests({ interests }: InterestsProps) {
       {/* Section Header */}
       <div className="flex items-baseline justify-between mb-6">
         <div>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold bg-[#EC4899]/10 text-[#EC4899] border border-[#EC4899]/30 mb-2">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold liquid-pill-rose mb-2">
             Section 05
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-semibold text-[#131210]">
@@ -76,21 +76,21 @@ export function Interests({ interests }: InterestsProps) {
           return (
             <div
               key={item.id}
-              className={`${colSpan} glass-panel glass-card-hover p-6 sm:p-7 rounded-[16px] border border-white/80 shadow-md relative overflow-hidden flex flex-col justify-between group`}
+              className={`${colSpan} glass-panel glass-card-hover p-6 sm:p-7 rounded-[18px] border border-white/80 dark:border-white/10 shadow-lg relative overflow-hidden flex flex-col justify-between group`}
             >
-              {/* Top Accent Gradient Line */}
+              {/* Top Accent Liquid Prism Line */}
               <div
-                className="absolute top-0 left-0 right-0 h-[2.5px]"
+                className="absolute top-0 left-0 right-0 h-[1.5px] pointer-events-none"
                 style={{
-                  background: `linear-gradient(90deg, ${item.accentColor}, transparent)`,
+                  background: `linear-gradient(90deg, transparent, ${item.accentColor}B3, transparent)`,
                 }}
               />
 
-              {/* Corner Ambient Glow Accent */}
+              {/* Corner Ambient Liquid Glow Accent */}
               <div
                 className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl ${getAccentGradient(
                   item.id
-                )} rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500`}
+                )} rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform duration-500 opacity-60 group-hover:opacity-100`}
               />
 
               <div className="relative z-10 space-y-4">
@@ -98,10 +98,10 @@ export function Interests({ interests }: InterestsProps) {
                 <div className="flex flex-wrap items-center justify-between gap-2.5">
                   <div className="flex items-center gap-3">
                     <div
-                      className="w-10 h-10 rounded-[10px] glass-pill flex items-center justify-center border shadow-sm group-hover:scale-105 transition-transform"
+                      className="w-10 h-10 rounded-[12px] glass-pill flex items-center justify-center border shadow-sm group-hover:scale-105 transition-transform"
                       style={{
-                        backgroundColor: `${item.accentColor}12`,
-                        borderColor: `${item.accentColor}30`,
+                        backgroundColor: `${item.accentColor}0D`,
+                        borderColor: `${item.accentColor}25`,
                       }}
                     >
                       {getIcon(item.icon)}
@@ -114,10 +114,10 @@ export function Interests({ interests }: InterestsProps) {
                   </div>
 
                   <span
-                    className="font-mono text-[0.66rem] px-2.5 py-1 rounded-full font-semibold border shadow-sm"
+                    className="font-mono text-[0.66rem] px-3 py-1 rounded-full font-semibold border shadow-sm"
                     style={{
-                      backgroundColor: `${item.accentColor}15`,
-                      borderColor: `${item.accentColor}35`,
+                      backgroundColor: `${item.accentColor}0D`,
+                      borderColor: `${item.accentColor}25`,
                       color: item.accentColor,
                     }}
                   >

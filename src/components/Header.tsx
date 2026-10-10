@@ -78,30 +78,30 @@ export function Header({ profile }: HeaderProps) {
             {profile.bio}
           </p>
 
-          {/* Core Trajectory Badges with Vibrant Color */}
+          {/* Core Trajectory Badges with Liquid Glass Styling */}
           <div className="flex flex-wrap items-center gap-2.5 pt-1 font-mono text-[0.72rem]">
-            <span className="glass-pill px-3.5 py-1.5 rounded-full text-emerald-800 dark:text-emerald-300 bg-emerald-500/10 border-emerald-500/30 font-medium flex items-center gap-2 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="liquid-pill-emerald px-3.5 py-1.5 rounded-full font-medium flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
               {profile.education}
             </span>
-            <span className="glass-pill px-3.5 py-1.5 rounded-full text-amber-800 dark:text-amber-300 bg-amber-500/10 border-amber-500/30 font-medium flex items-center gap-2 shadow-sm">
+            <span className="liquid-pill-amber px-3.5 py-1.5 rounded-full font-medium flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
               Couch Critics — Shipped 3/10/2026
             </span>
           </div>
         </div>
 
-        {/* Right Column: Live Telemetry & Engineering Overview Glass Card with Glowing Gradient Edge */}
-        <div className="lg:col-span-5 xl:col-span-4 glass-panel p-5 sm:p-6 rounded-[14px] shadow-lg border border-white/80 relative overflow-hidden space-y-4">
-          {/* Top Gradient Border Highlight */}
-          <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-emerald-400 via-indigo-500 to-[#E6552F]" />
+        {/* Right Column: Live Telemetry & Engineering Overview Glass Card with Liquid Prism Edge */}
+        <div className="lg:col-span-5 xl:col-span-4 glass-panel p-5 sm:p-6 rounded-[14px] shadow-lg border border-white/80 dark:border-white/10 relative overflow-hidden space-y-4">
+          {/* Top Liquid Prism Highlight */}
+          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-emerald-400 via-indigo-500 to-[#E6552F]" />
 
           <div className="flex items-center justify-between pb-3 border-b border-[rgba(113,110,104,0.15)]">
             <span className="font-mono text-[0.7rem] uppercase tracking-wider text-[#716E68] font-semibold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.7)]" />
               Active System Status
             </span>
-            <span className="glass-pill px-2.5 py-0.5 font-mono text-[0.66rem] text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 border-emerald-500/30 font-semibold">
+            <span className="liquid-pill-emerald px-2.5 py-0.5 font-mono text-[0.66rem] font-semibold rounded-full">
               Live Ready
             </span>
           </div>

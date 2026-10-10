@@ -11,7 +11,7 @@ export function Milestones({ milestones }: MilestonesProps) {
       {/* Section Header */}
       <div className="flex items-baseline justify-between mb-6">
         <div>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/30 mb-2">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold liquid-pill-emerald mb-2">
             Section 03
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-semibold text-[#131210]">
@@ -28,9 +28,9 @@ export function Milestones({ milestones }: MilestonesProps) {
       </p>
 
       {/* Structured Glassmorphic Ledger Table */}
-      <div className="glass-panel rounded-[12px] overflow-hidden shadow-lg border border-white/80 relative">
-        {/* Top Glowing Gradient Line */}
-        <div className="h-[2.5px] w-full bg-gradient-to-r from-emerald-500 via-teal-400 to-[#6366F1]" />
+      <div className="glass-panel rounded-[14px] overflow-hidden shadow-lg border border-white/80 dark:border-white/10 relative">
+        {/* Top Liquid Prism Refraction Line */}
+        <div className="h-[1.5px] w-full bg-gradient-to-r from-transparent via-emerald-400/80 to-transparent pointer-events-none" />
 
         {/* Table Head (desktop) */}
         <div className="hidden sm:grid grid-cols-12 gap-4 px-6 py-3.5 border-b border-[rgba(113,110,104,0.15)] bg-white/40 font-mono text-[0.7rem] uppercase tracking-wider text-[#716E68]">
@@ -53,31 +53,31 @@ export function Milestones({ milestones }: MilestonesProps) {
                 {/* Year Chip */}
                 <div className="sm:col-span-2 mb-2 sm:mb-0">
                   <span
-                    className={`font-mono text-[0.72rem] px-3 py-1 rounded-full font-semibold inline-flex items-center gap-1.5 border ${
+                    className={`font-mono text-[0.72rem] px-3 py-1 rounded-full font-semibold inline-flex items-center gap-1.5 ${
                       isPresent
-                        ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30"
+                        ? "liquid-pill-emerald"
                         : isCouchCritics
-                        ? "bg-[#E6552F]/15 text-[#E6552F] dark:text-[#FF6136] border-[#E6552F]/30"
-                        : "bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border-indigo-500/30"
+                        ? "liquid-pill-vermilion"
+                        : "liquid-pill-indigo"
                     }`}
                   >
-                    {isPresent && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />}
+                    {isPresent && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.7)]" />}
                     {item.date}
                   </span>
                 </div>
 
                 {/* Title & Context */}
                 <div className="sm:col-span-4 mb-2 sm:mb-0 space-y-1.5">
-                  <div className="text-[0.94rem] font-medium text-[#131210]">
+                  <div className="text-[0.94rem] font-medium text-[#131210] dark:text-[#F3F1EC]">
                     {item.title}
                   </div>
                   <div
-                    className={`inline-block font-mono text-[0.66rem] px-2.5 py-0.5 rounded-full border ${
+                    className={`inline-block font-mono text-[0.66rem] px-2.5 py-0.5 rounded-full font-medium ${
                       isPresent
-                        ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20"
+                        ? "liquid-pill-emerald"
                         : isCouchCritics
-                        ? "bg-[#E6552F]/10 text-[#E6552F] dark:text-[#FF6136] border-[#E6552F]/20"
-                        : "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20"
+                        ? "liquid-pill-vermilion"
+                        : "liquid-pill-indigo"
                     }`}
                   >
                     {item.context}

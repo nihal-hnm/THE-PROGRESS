@@ -77,73 +77,89 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
       {/* Changelog Ledger 2-Column Grid of Frosted Glass Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filteredLogs.map((log) => {
+          const isBuilding = log.status === "Currently Building";
+          const isCompleted = log.status === "Completed";
+
           return (
             <div
               key={`${log.date}-${log.topic}`}
-              className="p-5 sm:p-6 rounded-[12px] glass-panel glass-card-hover flex flex-col justify-between border border-white/80 shadow-md relative overflow-hidden"
+              className="p-5 sm:p-6 rounded-[14px] glass-panel glass-card-hover flex flex-col justify-between border border-white/80 dark:border-white/10 shadow-lg relative overflow-hidden group"
             >
-              {/* Top Gradient Edge Accent */}
+              {/* Liquid Top Prism Refraction Line */}
               <div
-                className={`absolute top-0 left-0 right-0 h-[2.5px] ${
-                  log.status === "Currently Building"
-                    ? "bg-gradient-to-r from-[#E6552F] via-[#F97316] to-transparent"
-                    : log.status === "Completed"
-                    ? "bg-gradient-to-r from-emerald-500 via-teal-400 to-transparent"
-                    : "bg-gradient-to-r from-indigo-500 via-purple-400 to-transparent"
+                className={`absolute top-0 left-0 right-0 h-[1.5px] pointer-events-none ${
+                  isBuilding
+                    ? "bg-gradient-to-r from-transparent via-[#E6552F]/70 to-transparent"
+                    : isCompleted
+                    ? "bg-gradient-to-r from-transparent via-emerald-400/70 to-transparent"
+                    : "bg-gradient-to-r from-transparent via-indigo-400/70 to-transparent"
                 }`}
               />
 
-              <div>
+              {/* Ambient Liquid Corner Sheen */}
+              <div
+                className={`absolute -top-12 -right-12 w-36 h-36 rounded-full blur-2xl pointer-events-none transition-opacity duration-300 group-hover:opacity-100 opacity-60 ${
+                  isBuilding
+                    ? "bg-[#E6552F]/10"
+                    : isCompleted
+                    ? "bg-emerald-500/10"
+                    : "bg-indigo-500/10"
+                }`}
+              />
+
+              <div className="relative z-10">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                  <span className="font-mono text-[0.75rem] text-[#716E68]">
+                  <span className="font-mono text-[0.72rem] text-[#716E68] tracking-wider">
                     {log.date}
                   </span>
-                  {/* Status Indicator Pill with Vibrant Glass Glow */}
-                  <span className={`inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
-                    log.status === "Currently Building"
-                      ? "bg-[#E6552F]/15 border-[#E6552F]/40 text-[#E6552F] dark:text-[#FF6136]"
-                      : log.status === "Completed"
-                      ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-700 dark:text-emerald-300"
-                      : "bg-indigo-500/15 border-indigo-500/40 text-indigo-700 dark:text-indigo-300"
-                  }`}>
-                    <span
-                      className={`w-1.5 h-1.5 rounded-full ${
-                        log.status === "Currently Building"
-                          ? "bg-[#E6552F] animate-pulse"
-                          : log.status === "Completed"
-                          ? "bg-emerald-500"
-                          : "bg-indigo-500"
-                      }`}
-                    />
-                    <span className="font-medium">{log.status}</span>
-                  </span>
+
+                  {/* Status Indicator: Pure Liquid Glass Capsule */}
+                  {isBuilding ? (
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full liquid-pill-vermilion font-medium">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E6552F] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E6552F] shadow-[0_0_8px_rgba(230,85,47,0.7)]" />
+                      </span>
+                      <span>Currently Building</span>
+                    </span>
+                  ) : isCompleted ? (
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full liquid-pill-emerald font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.7)]" />
+                      <span>Completed</span>
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full liquid-pill-indigo font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.7)]" />
+                      <span>Researching</span>
+                    </span>
+                  )}
                 </div>
 
                 {/* Topic Headline */}
-                <h3 className="text-base sm:text-lg font-heading text-[#131210] mb-2 font-medium leading-snug">
+                <h3 className="text-base sm:text-lg font-heading text-[#131210] dark:text-[#F3F1EC] mb-2 font-medium leading-snug">
                   {log.topic}
                 </h3>
 
                 {/* Notes */}
-                <p className="text-[0.88rem] leading-[1.65] text-[#131210]/85 font-sans mb-4">
+                <p className="text-[0.88rem] leading-[1.68] text-[#131210]/80 dark:text-[#E2DFD8] font-sans mb-4">
                   {log.notes}
                 </p>
               </div>
 
-              {/* Tags with Vibrant Tinted Styling */}
-              <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-[rgba(113,110,104,0.15)]">
+              {/* Tags with Liquid Glass Translucent Styling */}
+              <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-[rgba(113,110,104,0.15)] relative z-10">
                 {log.tags.map((tag) => {
-                  let tagStyle = "glass-pill text-[#716E68]";
-                  if (tag.includes("TMDB")) tagStyle = "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30";
-                  else if (tag.includes("React") || tag.includes("Next.js")) tagStyle = "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/30";
-                  else if (tag.includes("Supabase") || tag.includes("PostgreSQL") || tag.includes("RLS")) tagStyle = "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30";
-                  else if (tag.includes("Python") || tag.includes("Algorithms")) tagStyle = "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/30";
-                  else if (tag.includes("Launch") || tag.includes("Production")) tagStyle = "bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/30";
+                  let tagClass = "glass-pill text-[#716E68] dark:text-[#A8A49C]";
+                  if (tag.includes("TMDB")) tagClass = "liquid-pill-rose";
+                  else if (tag.includes("React") || tag.includes("Next.js")) tagClass = "liquid-pill-cyan";
+                  else if (tag.includes("Supabase") || tag.includes("PostgreSQL") || tag.includes("RLS")) tagClass = "liquid-pill-emerald";
+                  else if (tag.includes("Python") || tag.includes("Algorithms")) tagClass = "liquid-pill-amber";
+                  else if (tag.includes("Launch") || tag.includes("Production")) tagClass = "liquid-pill-vermilion";
 
                   return (
                     <span
                       key={tag}
-                      className={`font-mono text-[0.68rem] px-2.5 py-0.5 rounded-[4px] border font-medium transition-colors ${tagStyle}`}
+                      className={`font-mono text-[0.68rem] px-2.5 py-0.5 rounded-full font-medium transition-transform duration-150 hover:-translate-y-0.5 ${tagClass}`}
                     >
                       #{tag}
                     </span>

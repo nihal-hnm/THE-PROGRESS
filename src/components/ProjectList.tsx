@@ -18,15 +18,15 @@ export function ProjectList({ projects }: ProjectListProps) {
   };
 
   const getTechBadgeStyle = (tech: string) => {
-    if (tech.includes("Next.js")) return "bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/30";
-    if (tech.includes("React")) return "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/30";
-    if (tech.includes("TypeScript")) return "bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30";
-    if (tech.includes("Tailwind")) return "bg-teal-500/10 text-teal-700 dark:text-teal-300 border-teal-500/30";
-    if (tech.includes("Supabase")) return "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30";
-    if (tech.includes("TMDB")) return "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30";
-    if (tech.includes("Zod")) return "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/30";
-    if (tech.includes("Vercel")) return "bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/30";
-    return "glass-pill text-[#131210]/90";
+    if (tech.includes("Next.js")) return "liquid-pill-vermilion";
+    if (tech.includes("React")) return "liquid-pill-cyan";
+    if (tech.includes("TypeScript")) return "liquid-pill-indigo";
+    if (tech.includes("Tailwind")) return "liquid-pill-cyan";
+    if (tech.includes("Supabase")) return "liquid-pill-emerald";
+    if (tech.includes("TMDB")) return "liquid-pill-rose";
+    if (tech.includes("Zod")) return "liquid-pill-indigo";
+    if (tech.includes("Vercel")) return "liquid-pill-indigo";
+    return "glass-pill text-[#716E68] dark:text-[#A8A49C]";
   };
 
   return (
@@ -34,7 +34,7 @@ export function ProjectList({ projects }: ProjectListProps) {
       {/* Section Header */}
       <div className="flex items-baseline justify-between mb-6">
         <div>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold bg-[#E6552F]/10 text-[#E6552F] border border-[#E6552F]/30 mb-2">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold liquid-pill-vermilion mb-2">
             Section 01
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-semibold text-[#131210]">
@@ -79,13 +79,16 @@ export function ProjectList({ projects }: ProjectListProps) {
                       {project.title}
                     </h3>
                     <span
-                      className={`font-mono text-[0.66rem] px-2.5 py-0.5 rounded-full uppercase tracking-wider font-semibold border ${
+                      className={`font-mono text-[0.66rem] px-2.5 py-0.5 rounded-full uppercase tracking-wider font-semibold inline-flex items-center gap-1.5 ${
                         project.status === "Production"
-                          ? "border-emerald-500/30 text-emerald-700 dark:text-emerald-300 bg-emerald-500/10"
+                          ? "liquid-pill-emerald"
                           : "text-[#716E68] glass-pill"
                       }`}
                     >
-                      {project.status}
+                      {project.status === "Production" && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.7)]" />
+                      )}
+                      <span>{project.status}</span>
                     </span>
                   </div>
 
