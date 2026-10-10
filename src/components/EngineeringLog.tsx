@@ -29,11 +29,11 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
         <div>
-          <span className="font-mono text-[0.72rem] tracking-widest text-[#716E68] uppercase block mb-1">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold bg-[#6366F1]/10 text-[#6366F1] border border-[#6366F1]/30 mb-2">
             Section 02
           </span>
-          <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#131210]">
-            Engineering Log & Changelog
+          <h2 className="text-2xl sm:text-3xl font-display font-semibold text-[#131210]">
+            Engineering Log <span className="font-serif italic font-normal text-inherit px-0.5">&</span> Changelog
           </h2>
         </div>
 
@@ -52,8 +52,8 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
                 onClick={() => setActiveFilter(option)}
                 className={`px-3 py-1.5 rounded-full font-mono text-[0.7rem] transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? "bg-[#131210] text-[#FFFFFF] shadow-[0_2px_10px_rgba(19,18,16,0.2)]"
-                    : "glass-pill text-[#716E68] hover:text-[#131210] hover:border-[#131210]/30"
+                    ? "bg-[#131210] dark:bg-white text-white dark:text-[#131210] shadow-[0_2px_10px_rgba(19,18,16,0.2)]"
+                    : "glass-pill text-[#716E68] hover:text-[#131210] hover:border-[#6366F1]/40"
                 }`}
               >
                 <span>{option}</span>
@@ -80,8 +80,19 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
           return (
             <div
               key={`${log.date}-${log.topic}`}
-              className="p-5 sm:p-6 rounded-[12px] glass-panel glass-card-hover flex flex-col justify-between border border-white/80 shadow-md"
+              className="p-5 sm:p-6 rounded-[12px] glass-panel glass-card-hover flex flex-col justify-between border border-white/80 shadow-md relative overflow-hidden"
             >
+              {/* Top Gradient Edge Accent */}
+              <div
+                className={`absolute top-0 left-0 right-0 h-[2.5px] ${
+                  log.status === "Currently Building"
+                    ? "bg-gradient-to-r from-[#E6552F] via-[#F97316] to-transparent"
+                    : log.status === "Completed"
+                    ? "bg-gradient-to-r from-emerald-500 via-teal-400 to-transparent"
+                    : "bg-gradient-to-r from-indigo-500 via-purple-400 to-transparent"
+                }`}
+              />
+
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <span className="font-mono text-[0.75rem] text-[#716E68]">
@@ -90,10 +101,10 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
                   {/* Status Indicator Pill with Vibrant Glass Glow */}
                   <span className={`inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
                     log.status === "Currently Building"
-                      ? "bg-[#E6552F]/10 border-[#E6552F]/30 text-[#E6552F]"
+                      ? "bg-[#E6552F]/15 border-[#E6552F]/40 text-[#E6552F] dark:text-[#FF6136]"
                       : log.status === "Completed"
-                      ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-400"
-                      : "bg-indigo-500/10 border-indigo-500/30 text-indigo-700 dark:text-indigo-400"
+                      ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-700 dark:text-emerald-300"
+                      : "bg-indigo-500/15 border-indigo-500/40 text-indigo-700 dark:text-indigo-300"
                   }`}>
                     <span
                       className={`w-1.5 h-1.5 rounded-full ${
@@ -119,16 +130,25 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
                 </p>
               </div>
 
-              {/* Tags */}
+              {/* Tags with Vibrant Tinted Styling */}
               <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-[rgba(113,110,104,0.15)]">
-                {log.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="glass-pill font-mono text-[0.68rem] px-2.5 py-0.5 rounded-[4px] text-[#716E68] hover:text-[#131210] transition-colors"
-                  >
-                    #{tag}
-                  </span>
-                ))}
+                {log.tags.map((tag) => {
+                  let tagStyle = "glass-pill text-[#716E68]";
+                  if (tag.includes("TMDB")) tagStyle = "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30";
+                  else if (tag.includes("React") || tag.includes("Next.js")) tagStyle = "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/30";
+                  else if (tag.includes("Supabase") || tag.includes("PostgreSQL") || tag.includes("RLS")) tagStyle = "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30";
+                  else if (tag.includes("Python") || tag.includes("Algorithms")) tagStyle = "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/30";
+                  else if (tag.includes("Launch") || tag.includes("Production")) tagStyle = "bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/30";
+
+                  return (
+                    <span
+                      key={tag}
+                      className={`font-mono text-[0.68rem] px-2.5 py-0.5 rounded-[4px] border font-medium transition-colors ${tagStyle}`}
+                    >
+                      #{tag}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           );

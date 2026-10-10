@@ -17,16 +17,28 @@ export function ProjectList({ projects }: ProjectListProps) {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
+  const getTechBadgeStyle = (tech: string) => {
+    if (tech.includes("Next.js")) return "bg-orange-500/10 text-orange-700 dark:text-orange-300 border-orange-500/30";
+    if (tech.includes("React")) return "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/30";
+    if (tech.includes("TypeScript")) return "bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30";
+    if (tech.includes("Tailwind")) return "bg-teal-500/10 text-teal-700 dark:text-teal-300 border-teal-500/30";
+    if (tech.includes("Supabase")) return "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30";
+    if (tech.includes("TMDB")) return "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/30";
+    if (tech.includes("Zod")) return "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/30";
+    if (tech.includes("Vercel")) return "bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/30";
+    return "glass-pill text-[#131210]/90";
+  };
+
   return (
     <section className="py-12 border-b border-[rgba(113,110,104,0.2)]">
       {/* Section Header */}
       <div className="flex items-baseline justify-between mb-6">
         <div>
-          <span className="font-mono text-[0.72rem] tracking-widest text-[#716E68] uppercase block mb-1">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold bg-[#E6552F]/10 text-[#E6552F] border border-[#E6552F]/30 mb-2">
             Section 01
           </span>
-          <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#131210]">
-            Selected Systems & Builds
+          <h2 className="text-2xl sm:text-3xl font-display font-semibold text-[#131210]">
+            Selected Systems <span className="font-serif italic font-normal text-inherit px-0.5">&</span> Builds
           </h2>
         </div>
         <span className="glass-pill px-2.5 py-1 text-[0.72rem] text-[#716E68]">
@@ -67,10 +79,10 @@ export function ProjectList({ projects }: ProjectListProps) {
                       {project.title}
                     </h3>
                     <span
-                      className={`font-mono text-[0.66rem] px-2.5 py-0.5 rounded-full uppercase tracking-wider font-medium glass-pill ${
+                      className={`font-mono text-[0.66rem] px-2.5 py-0.5 rounded-full uppercase tracking-wider font-semibold border ${
                         project.status === "Production"
-                          ? "border-[#E6552F]/40 text-[#E6552F] bg-white/90"
-                          : "text-[#716E68]"
+                          ? "border-emerald-500/30 text-emerald-700 dark:text-emerald-300 bg-emerald-500/10"
+                          : "text-[#716E68] glass-pill"
                       }`}
                     >
                       {project.status}
@@ -82,12 +94,14 @@ export function ProjectList({ projects }: ProjectListProps) {
                     {project.tagline}
                   </p>
 
-                  {/* Monospace Tech Tags with Glass Styling */}
+                  {/* Monospace Tech Tags with Color-Coded Glass Styling */}
                   <div className="flex flex-wrap items-center gap-1.5 pt-1">
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="glass-pill font-mono text-[0.68rem] px-2.5 py-0.5 rounded-[4px] text-[#131210]/90"
+                        className={`font-mono text-[0.68rem] px-2.5 py-0.5 rounded-[4px] border font-medium ${getTechBadgeStyle(
+                          tech
+                        )}`}
                       >
                         {tech}
                       </span>

@@ -44,14 +44,14 @@ export function Interests({ interests }: InterestsProps) {
       {/* Section Header */}
       <div className="flex items-baseline justify-between mb-6">
         <div>
-          <span className="font-mono text-[0.72rem] tracking-widest text-[#716E68] uppercase block mb-1">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold bg-[#EC4899]/10 text-[#EC4899] border border-[#EC4899]/30 mb-2">
             Section 05
           </span>
-          <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#131210]">
-            Interests, Passions & Explorations
+          <h2 className="text-2xl sm:text-3xl font-display font-semibold text-[#131210]">
+            Interests, Passions <span className="font-serif italic font-normal text-inherit px-0.5">&</span> Explorations
           </h2>
         </div>
-        <span className="font-mono text-[0.75rem] text-[#716E68]">
+        <span className="glass-pill px-2.5 py-1 text-[0.72rem] text-[#716E68]">
           [Beyond The Code]
         </span>
       </div>
@@ -78,6 +78,14 @@ export function Interests({ interests }: InterestsProps) {
               key={item.id}
               className={`${colSpan} glass-panel glass-card-hover p-6 sm:p-7 rounded-[16px] border border-white/80 shadow-md relative overflow-hidden flex flex-col justify-between group`}
             >
+              {/* Top Accent Gradient Line */}
+              <div
+                className="absolute top-0 left-0 right-0 h-[2.5px]"
+                style={{
+                  background: `linear-gradient(90deg, ${item.accentColor}, transparent)`,
+                }}
+              />
+
               {/* Corner Ambient Glow Accent */}
               <div
                 className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl ${getAccentGradient(
@@ -89,7 +97,13 @@ export function Interests({ interests }: InterestsProps) {
                 {/* Top Metadata Strip */}
                 <div className="flex flex-wrap items-center justify-between gap-2.5">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-[10px] glass-pill flex items-center justify-center border border-white/80 shadow-sm group-hover:scale-105 transition-transform">
+                    <div
+                      className="w-10 h-10 rounded-[10px] glass-pill flex items-center justify-center border shadow-sm group-hover:scale-105 transition-transform"
+                      style={{
+                        backgroundColor: `${item.accentColor}12`,
+                        borderColor: `${item.accentColor}30`,
+                      }}
+                    >
                       {getIcon(item.icon)}
                     </div>
                     <div>
@@ -99,7 +113,14 @@ export function Interests({ interests }: InterestsProps) {
                     </div>
                   </div>
 
-                  <span className="glass-pill font-mono text-[0.66rem] px-2.5 py-1 rounded-full text-[#131210] font-medium border border-[rgba(113,110,104,0.2)]">
+                  <span
+                    className="font-mono text-[0.66rem] px-2.5 py-1 rounded-full font-semibold border shadow-sm"
+                    style={{
+                      backgroundColor: `${item.accentColor}15`,
+                      borderColor: `${item.accentColor}35`,
+                      color: item.accentColor,
+                    }}
+                  >
                     {item.badge}
                   </span>
                 </div>

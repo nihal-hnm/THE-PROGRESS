@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-serif: var(--font-fraunces), Georgia, serif;
-  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-playfair), "Playfair Display", Didot, "Bodoni MT", Georgia, serif;
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-jetbrains-mono), Menlo, Monaco, Consolas, monospace;
 
   --color-paper-base: #F3F0EA;
@@ -51,29 +51,30 @@ html.dark body {
   color: #F3F1EC;
 }
 
-/* Editorial typography utilities matching design.md */
+/* Editorial luxury typography utilities */
 .font-display {
   font-family: var(--font-serif);
-  letter-spacing: -0.03em;
-  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
 .font-heading {
   font-family: var(--font-serif);
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 .font-editorial-body {
   font-family: var(--font-sans);
   font-size: 0.98rem;
-  line-height: 1.65;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
 }
 
 .font-label {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 

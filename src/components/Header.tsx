@@ -59,11 +59,16 @@ export function Header({ profile }: HeaderProps) {
             </div>
 
             <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-display font-medium text-[#131210] tracking-tight leading-[1.1]">
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-display font-semibold text-[#131210] dark:text-[#F3F1EC] tracking-tight leading-[1.1]">
                 {profile.name}
               </h1>
               <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 text-base sm:text-lg font-sans font-medium text-[#716E68] tracking-tight">
-                <span>{profile.role}</span>
+                <span>
+                  <span className="bg-gradient-to-r from-[#E6552F] via-[#F97316] to-[#F59E0B] bg-clip-text text-transparent font-semibold">
+                    Full-Stack Engineer
+                  </span>{" "}
+                  <span className="font-serif italic font-normal text-inherit px-0.5">&</span> Computer Science Undergrad
+                </span>
               </div>
             </div>
           </div>
@@ -73,51 +78,64 @@ export function Header({ profile }: HeaderProps) {
             {profile.bio}
           </p>
 
-          {/* Core Trajectory Badges */}
-          <div className="flex flex-wrap items-center gap-2 pt-1 font-mono text-[0.72rem]">
-            <span className="glass-pill px-3 py-1 rounded-full text-[#131210] font-medium flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E6552F]" />
+          {/* Core Trajectory Badges with Vibrant Color */}
+          <div className="flex flex-wrap items-center gap-2.5 pt-1 font-mono text-[0.72rem]">
+            <span className="glass-pill px-3.5 py-1.5 rounded-full text-emerald-800 dark:text-emerald-300 bg-emerald-500/10 border-emerald-500/30 font-medium flex items-center gap-2 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               {profile.education}
             </span>
-            <span className="glass-pill px-3 py-1 rounded-full text-[#131210] font-medium flex items-center gap-1.5">
-              <Sparkles className="w-3 h-3 text-[#F59E0B]" />
+            <span className="glass-pill px-3.5 py-1.5 rounded-full text-amber-800 dark:text-amber-300 bg-amber-500/10 border-amber-500/30 font-medium flex items-center gap-2 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
               Couch Critics — Shipped 3/10/2026
             </span>
           </div>
         </div>
 
-        {/* Right Column: Live Telemetry & Engineering Overview Glass Card */}
-        <div className="lg:col-span-5 xl:col-span-4 glass-panel p-5 sm:p-6 rounded-[14px] shadow-lg border border-white/80 space-y-4">
+        {/* Right Column: Live Telemetry & Engineering Overview Glass Card with Glowing Gradient Edge */}
+        <div className="lg:col-span-5 xl:col-span-4 glass-panel p-5 sm:p-6 rounded-[14px] shadow-lg border border-white/80 relative overflow-hidden space-y-4">
+          {/* Top Gradient Border Highlight */}
+          <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-emerald-400 via-indigo-500 to-[#E6552F]" />
+
           <div className="flex items-center justify-between pb-3 border-b border-[rgba(113,110,104,0.15)]">
             <span className="font-mono text-[0.7rem] uppercase tracking-wider text-[#716E68] font-semibold flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               Active System Status
             </span>
-            <span className="glass-pill px-2.5 py-0.5 font-mono text-[0.66rem] text-[#E6552F] font-semibold">
-              Ready
+            <span className="glass-pill px-2.5 py-0.5 font-mono text-[0.66rem] text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 border-emerald-500/30 font-semibold">
+              Live Ready
             </span>
           </div>
 
           <div className="space-y-3 font-mono text-[0.75rem]">
             <div className="flex items-start justify-between gap-3">
               <span className="text-[#716E68]">STATUS:</span>
-              <span className="text-[#131210] font-medium text-right">{profile.availability}</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold text-right">
+                {profile.availability}
+              </span>
             </div>
             <div className="flex items-start justify-between gap-3">
               <span className="text-[#716E68]">STUDIES:</span>
-              <span className="text-[#131210] font-medium text-right">NIAT x Geeta Univ (CSE)</span>
+              <span className="text-indigo-600 dark:text-indigo-400 font-medium text-right">
+                NIAT x Geeta Univ (CSE)
+              </span>
             </div>
             <div className="flex items-start justify-between gap-3">
               <span className="text-[#716E68]">FLAGSHIP:</span>
-              <span className="text-[#131210] font-medium text-right text-[#E6552F]">Couch Critics v1.0</span>
+              <span className="text-[#E6552F] dark:text-[#FF6136] font-semibold text-right">
+                Couch Critics v1.0
+              </span>
             </div>
             <div className="flex items-start justify-between gap-3">
               <span className="text-[#716E68]">STACK:</span>
-              <span className="text-[#131210] font-medium text-right">Next.js 16 • React 19 • Supabase</span>
+              <span className="text-cyan-600 dark:text-cyan-400 font-medium text-right">
+                Next.js 16 • React 19 • Supabase
+              </span>
             </div>
             <div className="flex items-start justify-between gap-3">
               <span className="text-[#716E68]">LOCATION:</span>
-              <span className="text-[#131210] font-medium text-right">India (IST / Remote)</span>
+              <span className="text-amber-600 dark:text-amber-400 font-medium text-right">
+                India (IST / Remote)
+              </span>
             </div>
           </div>
 

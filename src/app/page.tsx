@@ -27,11 +27,12 @@ export default function Home() {
         {/* Soft grid matrix texture */}
         <div className="absolute inset-0 bg-grid-pattern opacity-35 [mask-image:radial-gradient(ellipse_70%_70%_at_50%_30%,#000_40%,transparent_100%)]" />
 
-        {/* Ambient Glowing Orbs */}
-        <div className="absolute -top-32 -left-20 w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-[#E6552F]/22 via-[#F97316]/18 to-transparent blur-[110px] animate-float-slow" />
-        <div className="absolute top-24 -right-24 w-[520px] h-[520px] rounded-full bg-gradient-to-br from-[#6366F1]/18 via-[#8B5CF6]/14 to-transparent blur-[120px] animate-float-reverse" />
-        <div className="absolute top-[45%] -left-36 w-[480px] h-[480px] rounded-full bg-gradient-to-r from-[#F59E0B]/18 to-[#E6552F]/12 blur-[115px] animate-float-slow" />
-        <div className="absolute -bottom-24 right-[10%] w-[580px] h-[580px] rounded-full bg-gradient-to-tl from-[#06B6D4]/16 via-[#3B82F6]/12 to-transparent blur-[130px] animate-float-reverse" />
+        {/* Ambient Glowing Chromatic Orbs - Rich Vibrant Undercurrents */}
+        <div className="absolute -top-32 -left-20 w-[640px] h-[640px] rounded-full bg-gradient-to-tr from-[#E6552F]/32 via-[#F97316]/24 to-transparent blur-[115px] animate-float-slow" />
+        <div className="absolute top-24 -right-24 w-[620px] h-[620px] rounded-full bg-gradient-to-br from-[#6366F1]/28 via-[#8B5CF6]/22 to-transparent blur-[120px] animate-float-reverse" />
+        <div className="absolute top-[35%] -left-36 w-[560px] h-[560px] rounded-full bg-gradient-to-r from-[#F59E0B]/26 via-[#E6552F]/18 to-transparent blur-[115px] animate-float-slow" />
+        <div className="absolute top-[60%] -right-28 w-[580px] h-[580px] rounded-full bg-gradient-to-bl from-[#10B981]/24 via-[#06B6D4]/18 to-transparent blur-[120px] animate-float-reverse" />
+        <div className="absolute -bottom-24 left-[15%] w-[680px] h-[680px] rounded-full bg-gradient-to-tl from-[#06B6D4]/25 via-[#3B82F6]/18 to-transparent blur-[130px] animate-float-slow" />
       </div>
 
       {/* Central Glassmorphic Column - Widescreen Layout */}
