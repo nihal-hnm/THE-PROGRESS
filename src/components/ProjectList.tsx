@@ -115,41 +115,35 @@ export function ProjectList({ projects }: ProjectListProps) {
                 <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-[rgba(113,110,104,0.15)] bg-white/20">
                   <div className="space-y-6">
                     {/* Visual UI Screenshot Showcase Card */}
-                    <div className="relative group/preview rounded-[10px] overflow-hidden border border-white/80 shadow-md glass-panel">
-                      <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] bg-[#10131A] overflow-hidden">
+                    <div className="relative group/preview rounded-[12px] overflow-hidden border border-black/10 dark:border-white/10 shadow-xl glass-panel">
+                      {/* Browser Chrome Header */}
+                      <div className="px-3.5 py-2 bg-[#12151C] flex items-center justify-between border-b border-white/10 text-white/70">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/80" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/80" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#10B981]/80" />
+                          <span className="ml-2 font-mono text-[0.7rem] text-white/60 hidden sm:inline-block">
+                            Couch Critics — Currently Watching
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="font-mono text-[0.66rem] px-2 py-0.5 rounded-full bg-white/10 text-[#E6552F] border border-[#E6552F]/30 flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#E6552F] animate-pulse" />
+                            Live App UI
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Screen Image */}
+                      <div className="relative w-full aspect-[16/9] bg-[#0E1015] overflow-hidden">
                         <Image
-                          src="/images/couch_critics.jpg"
-                          alt="Couch Critics Cinema Journal Application UI"
+                          src="/images/couch_critics_live.png"
+                          alt="Couch Critics Live Application UI - Currently Watching Shelf"
                           fill
                           sizes="(max-width: 768px) 100vw, 850px"
-                          className="object-cover object-top group-hover/preview:scale-[1.02] transition-transform duration-500 ease-out"
+                          className="object-cover object-top group-hover/preview:scale-[1.01] transition-transform duration-500 ease-out"
                           priority
                         />
-                        {/* Gradient Vignette Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-
-                        {/* Floating Graphical Badges on Preview */}
-                        <div className="absolute top-3 left-3 flex flex-wrap items-center gap-2">
-                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[0.68rem] font-mono font-medium bg-black/60 backdrop-blur-md text-white border border-white/20 shadow-sm">
-                            <Film className="w-3 h-3 text-[#E6552F]" />
-                            <span>Midnight Cinema Engine</span>
-                          </span>
-                          <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[0.68rem] font-mono font-medium bg-black/60 backdrop-blur-md text-white border border-white/20 shadow-sm">
-                            <Sparkles className="w-3 h-3 text-[#F59E0B]" />
-                            <span>TMDB Live Telemetry</span>
-                          </span>
-                        </div>
-
-                        {/* Bottom Banner on Image Preview */}
-                        <div className="absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2 text-white">
-                          <div className="flex items-center gap-2 text-[0.72rem] font-mono">
-                            <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                            <span>Supabase PostgreSQL + RLS Protected</span>
-                          </div>
-                          <span className="text-[0.68rem] font-mono opacity-80 bg-white/10 px-2 py-0.5 rounded backdrop-blur-sm">
-                            Next.js 16 + React 19
-                          </span>
-                        </div>
                       </div>
                     </div>
 

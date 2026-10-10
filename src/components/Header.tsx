@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { DeveloperProfile } from "@/data/portfolioData";
-import { Copy, Check } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface HeaderProps {
@@ -10,20 +9,8 @@ interface HeaderProps {
 }
 
 export function Header({ profile }: HeaderProps) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(profile.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // fallback
-    }
-  };
-
   return (
-    <header className="pt-2 pb-12 border-b border-[rgba(113,110,104,0.2)]">
+    <header className="pt-2 pb-10 border-b border-[rgba(113,110,104,0.2)]">
       {/* Top Meta Bar with Frosted Glass Pills */}
       <div className="flex flex-wrap items-center justify-between gap-3 text-[0.75rem] font-mono tracking-wider text-[#716E68] mb-8">
         <div className="glass-pill px-3 py-1.5 rounded-full flex items-center gap-2">
@@ -81,31 +68,9 @@ export function Header({ profile }: HeaderProps) {
       </div>
 
       {/* Grounded Bio */}
-      <p className="max-w-2xl text-[0.98rem] leading-[1.7] text-[#131210]/90 font-sans mb-8">
+      <p className="max-w-2xl text-[0.98rem] leading-[1.7] text-[#131210]/90 font-sans">
         {profile.bio}
       </p>
-
-      {/* Action Strip */}
-      <div className="flex items-center gap-2 pt-2">
-        {/* Copy Email Button - Primary Action with Soft Glow */}
-        <button
-          onClick={handleCopyEmail}
-          className="group inline-flex items-center gap-2 px-4 py-2 rounded-[6px] bg-[#E6552F] hover:bg-[#d04925] text-[#FFFFFF] font-mono text-[0.75rem] tracking-wide font-medium transition-all duration-200 cursor-pointer shadow-[0_4px_16px_rgba(230,85,47,0.25)] hover:shadow-[0_6px_20px_rgba(230,85,47,0.35)] hover:-translate-y-0.5"
-          title={`Copy ${profile.email}`}
-        >
-          {copied ? (
-            <>
-              <Check className="w-3.5 h-3.5" />
-              <span>copied email</span>
-            </>
-          ) : (
-            <>
-              <Copy className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
-              <span>copy email</span>
-            </>
-          )}
-        </button>
-      </div>
     </header>
   );
 }
