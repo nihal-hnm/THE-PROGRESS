@@ -27,39 +27,41 @@ export function Milestones({ milestones }: MilestonesProps) {
         Chronological record of university academics, shipped software projects, and technical milestones.
       </p>
 
-      {/* Structured Ledger Table */}
-      <div className="border border-[rgba(113,110,104,0.25)] rounded-[6px] bg-[#FFFFFF] overflow-hidden">
+      {/* Structured Glassmorphic Ledger Table */}
+      <div className="glass-panel rounded-[12px] overflow-hidden shadow-lg border border-white/80">
         {/* Table Head (desktop) */}
-        <div className="hidden sm:grid grid-cols-12 gap-4 px-5 py-3 border-b border-[rgba(113,110,104,0.2)] bg-[#FAF8F5] font-mono text-[0.7rem] uppercase tracking-wider text-[#716E68]">
+        <div className="hidden sm:grid grid-cols-12 gap-4 px-6 py-3.5 border-b border-[rgba(113,110,104,0.15)] bg-white/40 font-mono text-[0.7rem] uppercase tracking-wider text-[#716E68]">
           <div className="col-span-2">Year</div>
           <div className="col-span-4">Initiative / Context</div>
           <div className="col-span-6">Outcome / Contribution</div>
         </div>
 
         {/* Table Rows */}
-        <div className="divide-y divide-[rgba(113,110,104,0.2)]">
-          {milestones.map((item, idx) => (
+        <div className="divide-y divide-[rgba(113,110,104,0.15)]">
+          {milestones.map((item) => (
             <div
               key={`${item.date}-${item.title}`}
-              className="p-4 sm:px-5 sm:py-4 sm:grid sm:grid-cols-12 gap-4 items-baseline hover:bg-[#FAF8F5]/60 transition-colors"
+              className="p-5 sm:px-6 sm:py-4.5 sm:grid sm:grid-cols-12 gap-4 items-baseline hover:bg-white/40 transition-colors duration-200"
             >
-              {/* Year */}
-              <div className="sm:col-span-2 font-mono text-[0.75rem] text-[#716E68] mb-1 sm:mb-0">
-                {item.date}
+              {/* Year Chip */}
+              <div className="sm:col-span-2 mb-2 sm:mb-0">
+                <span className="glass-pill font-mono text-[0.72rem] px-2.5 py-0.5 rounded-full font-semibold text-[#E6552F] inline-block">
+                  {item.date}
+                </span>
               </div>
 
               {/* Title & Context */}
-              <div className="sm:col-span-4 mb-2 sm:mb-0 space-y-1">
-                <div className="text-[0.92rem] font-medium text-[#131210]">
+              <div className="sm:col-span-4 mb-2 sm:mb-0 space-y-1.5">
+                <div className="text-[0.94rem] font-medium text-[#131210]">
                   {item.title}
                 </div>
-                <div className="inline-block font-mono text-[0.66rem] px-2 py-0.5 rounded-[2px] bg-[#F3F0EA] text-[#716E68] border border-[rgba(113,110,104,0.2)]">
+                <div className="inline-block glass-pill font-mono text-[0.66rem] px-2.5 py-0.5 rounded-full text-[#716E68]">
                   {item.context}
                 </div>
               </div>
 
               {/* Description */}
-              <div className="sm:col-span-6 text-[0.88rem] leading-[1.62] text-[#131210]/80">
+              <div className="sm:col-span-6 text-[0.88rem] leading-[1.65] text-[#131210]/85">
                 {item.description}
               </div>
             </div>

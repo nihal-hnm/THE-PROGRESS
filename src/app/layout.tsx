@@ -54,9 +54,27 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased selection:bg-[#E6552F] selection:text-white`}
     >
-      <body className="min-h-screen bg-[#F3F0EA] text-[#131210] font-sans">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-screen bg-[#F3F0EA] dark:bg-[#0B0D11] text-[#131210] dark:text-[#F3F1EC] font-sans transition-colors duration-300">
         {children}
       </body>
     </html>

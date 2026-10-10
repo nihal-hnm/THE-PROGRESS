@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-serif: var(--font-fraunces), Georgia, serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -16,6 +18,7 @@
 }
 
 :root {
+  color-scheme: light dark;
   --bg-foundation: #F3F0EA;
   --text-primary: #131210;
   --text-secondary: #716E68;
@@ -24,12 +27,28 @@
   --border-line: #DCD8D0;
 }
 
+html.dark {
+  color-scheme: dark;
+  --bg-foundation: #0B0D11;
+  --text-primary: #F3F1EC;
+  --text-secondary: #9E9A91;
+  --accent-vermilion: #FF6136;
+  --surface-card: #141720;
+  --border-line: rgba(255, 255, 255, 0.12);
+}
+
 html {
   background-color: var(--bg-foundation);
   color: var(--text-primary);
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background-color: #0B0D11;
+  color: #F3F1EC;
 }
 
 /* Editorial typography utilities matching design.md */
@@ -67,7 +86,186 @@ html {
   border-color: rgba(113, 110, 104, 0.25);
 }
 
+/* Glassmorphism Design System */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px -5px rgba(19, 18, 16, 0.05),
+              0 0 0 1px rgba(113, 110, 104, 0.08),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .glass-panel {
+  background: rgba(18, 22, 31, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 40px -5px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(255, 255, 255, 0.06),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-panel-subtle {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 4px 20px -2px rgba(19, 18, 16, 0.03),
+              0 0 0 1px rgba(113, 110, 104, 0.06),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.85);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .glass-panel-subtle {
+  background: rgba(14, 17, 24, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px -1px rgba(19, 18, 16, 0.04),
+              0 0 0 1px rgba(113, 110, 104, 0.08),
+              inset 0 1px 0 0 rgba(255, 255, 255, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .glass-pill {
+  background: rgba(23, 28, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 2px 10px -1px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(255, 255, 255, 0.07),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  color: #EDEBE8;
+}
+
+.dark .glass-pill:hover {
+  background: rgba(30, 36, 50, 0.9);
+  border-color: rgba(255, 99, 54, 0.4);
+  color: #FF6136;
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(230, 85, 47, 0.35);
+  box-shadow: 0 14px 40px -8px rgba(230, 85, 47, 0.12),
+              0 0 0 1px rgba(230, 85, 47, 0.2),
+              inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+}
+
+.dark .glass-card-hover:hover {
+  background: rgba(25, 30, 42, 0.92);
+  border-color: rgba(255, 99, 54, 0.4);
+  box-shadow: 0 16px 44px -8px rgba(255, 99, 54, 0.2),
+              0 0 0 1px rgba(255, 99, 54, 0.3),
+              inset 0 1px 2px 0 rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+/* Subtle Geometric Grid Matrix */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(113, 110, 104, 0.22) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.dark .bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+}
+
+/* Ambient Floating Animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(15px, -20px) scale(1.05);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-18px, 15px) scale(0.96);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 14s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 18s ease-in-out infinite;
+}
+
 /* Smooth transitions for details */
 .transition-smooth {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Comprehensive Dark Mode Typography & Elevation Overrides */
+html.dark main {
+  background-color: #0B0D11;
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark .text-\[\#131210\] {
+  color: #F3F1EC;
+}
+
+html.dark .text-\[\#716E68\] {
+  color: #9E9A91;
+}
+
+html.dark .text-\[\#131210\]\/90,
+html.dark .text-\[\#131210\]\/85,
+html.dark .text-\[\#131210\]\/80 {
+  color: rgba(243, 241, 236, 0.88);
+}
+
+html.dark .border-\[rgba\(113\,110\,104\,0\.25\)\],
+html.dark .border-\[rgba\(113\,110\,104\,0\.2\)\],
+html.dark .border-\[rgba\(113\,110\,104\,0\.15\)\] {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .divide-\[rgba\(113\,110\,104\,0\.15\)\] > * + * {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .divide-\[rgba\(113\,110\,104\,0\.2\)\] > * + * {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .bg-\[\#F3F0EA\] {
+  background-color: #0B0D11;
+}
+
+html.dark .bg-\[\#FAF8F5\] {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+html.dark .bg-white\/50,
+html.dark .bg-white\/40,
+html.dark .bg-white\/30,
+html.dark .bg-white\/20 {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+html.dark .text-\[\#DCD8D0\] {
+  color: rgba(255, 255, 255, 0.2);
 }
