@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), Menlo, Monaco, Consolas, monospace;
+
+  --color-paper-base: #F3F0EA;
+  --color-paper-surface: #FFFFFF;
+  --color-paper-ink: #131210;
+  --color-paper-secondary: #716E68;
+  --color-paper-accent: #E6552F;
+  --color-paper-border: #DCD8D0;
+  --color-paper-border-hairline: rgba(113, 110, 104, 0.25);
+  --color-paper-muted: #E8E4DC;
+}
+
+:root {
+  --bg-foundation: #F3F0EA;
+  --text-primary: #131210;
+  --text-secondary: #716E68;
+  --accent-vermilion: #E6552F;
+  --surface-card: #FFFFFF;
+  --border-line: #DCD8D0;
+}
+
+html {
+  background-color: var(--bg-foundation);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Editorial typography utilities matching design.md */
+.font-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+
+.font-heading {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.font-editorial-body {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.font-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Hairline borders */
+.border-hairline {
+  border-color: rgba(113, 110, 104, 0.25);
+}
+
+.divide-hairline > * + * {
+  border-color: rgba(113, 110, 104, 0.25);
+}
+
+/* Smooth transitions for details */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
