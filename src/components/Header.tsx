@@ -41,13 +41,17 @@ export function Header({ profile }: HeaderProps) {
       </div>
 
       {/* Main Identity */}
-      <div className="space-y-4 mb-6">
+      <div className="space-y-3 mb-6">
         <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-display font-medium text-[#131210] tracking-tight leading-[1.1]">
           {profile.name}
         </h1>
-        <p className="text-lg sm:text-xl font-sans font-medium text-[#716E68] tracking-tight">
-          {profile.role}
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 text-base sm:text-lg font-sans font-medium text-[#716E68] tracking-tight">
+          <span>{profile.role}</span>
+          <span className="hidden sm:inline text-[#DCD8D0]">/</span>
+          <span className="text-[0.85rem] sm:text-[0.9rem] text-[#716E68] font-mono tracking-tight">
+            {profile.education}
+          </span>
+        </div>
       </div>
 
       {/* Grounded Bio */}

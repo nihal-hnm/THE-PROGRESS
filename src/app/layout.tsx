@@ -22,24 +22,26 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nihal — Full-Stack Engineer & Systems Builder",
+  title: "Nihal Mahore — Full-Stack Engineer & CS Undergrad",
   description:
-    "Engineering high-throughput systems, distributed primitives, and editorial-grade web applications. High signal-to-noise portfolio and changelog.",
+    "Portfolio of Nihal Mahore. Full-stack software engineering, modern web applications, Couch Critics cinema journal, and engineering changelog.",
   keywords: [
+    "Nihal Mahore",
     "Full-Stack Engineer",
-    "Systems Engineer",
-    "Distributed Systems",
+    "Computer Science",
     "Next.js",
-    "Go",
+    "React",
     "TypeScript",
-    "Nihal",
+    "Python",
+    "Supabase",
+    "Couch Critics",
   ],
-  authors: [{ name: "Nihal" }],
-  creator: "Nihal",
+  authors: [{ name: "Nihal Mahore" }],
+  creator: "Nihal Mahore",
   openGraph: {
-    title: "Nihal — Full-Stack Engineer & Systems Builder",
+    title: "Nihal Mahore — Full-Stack Engineer & CS Undergrad",
     description:
-      "Engineering high-throughput systems, distributed primitives, and editorial-grade web applications.",
+      "Full-stack software engineering, modern web applications, and technical project ledger.",
     type: "website",
   },
 };

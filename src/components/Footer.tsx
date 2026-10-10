@@ -34,7 +34,7 @@ export function Footer({ email, name }: FooterProps) {
             Initiate Collaboration
           </h3>
           <p className="text-[0.9rem] text-[#716E68] font-sans">
-            Available for high-impact engineering roles, systems research, and product builds.
+            Available for internships, full-stack engineering roles, and collaborative software builds.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export function Footer({ email, name }: FooterProps) {
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-[#131210] font-medium">{name}</span>
           <span className="text-[#DCD8D0]">/</span>
-          <span>Editorial Systems Portfolio</span>
+          <span>Editorial Engineering Portfolio</span>
           <span className="text-[#DCD8D0]">/</span>
           <span className="text-[#716E68]">Crafted with Next.js & Tailwind</span>
         </div>

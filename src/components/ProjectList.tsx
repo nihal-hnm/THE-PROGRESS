@@ -34,7 +34,7 @@ export function ProjectList({ projects }: ProjectListProps) {
       </div>
 
       <p className="text-[0.92rem] text-[#716E68] font-sans max-w-xl mb-6">
-        High-density ledger of systems engineering, distributed pipelines, and production web architecture.
+        High-density ledger of full-stack engineering, media tracking architectures, and production web applications.
       </p>
 
       {/* Projects Tabular List */}

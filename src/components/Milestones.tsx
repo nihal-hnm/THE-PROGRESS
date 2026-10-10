@@ -15,7 +15,7 @@ export function Milestones({ milestones }: MilestonesProps) {
             Section 03
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-medium text-[#131210]">
-            Milestones & Competitions
+            Education & Milestone Ledger
           </h2>
         </div>
         <span className="font-mono text-[0.75rem] text-[#716E68]">
@@ -24,7 +24,7 @@ export function Milestones({ milestones }: MilestonesProps) {
       </div>
 
       <p className="text-[0.92rem] text-[#716E68] font-sans max-w-xl mb-6">
-        Chronological record of hackathon builds, open-source initiatives, and engineering fellowships.
+        Chronological record of university academics, shipped software projects, and technical milestones.
       </p>
 
       {/* Structured Ledger Table */}
