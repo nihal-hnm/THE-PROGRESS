@@ -5,6 +5,7 @@ import { DeveloperProfile } from "@/data/portfolioData";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { PlatformIcon } from "@/components/PlatformIcon";
 import { Sparkles } from "lucide-react";
+import { LiquidGlassCard } from "@/components/LiquidGlassCard";
 
 interface HeaderProps {
   profile: DeveloperProfile;
@@ -40,6 +41,16 @@ export function Header({ profile }: HeaderProps) {
         </div>
       </div>
 
+      {/* Section Indicator */}
+      <div className="flex items-center justify-between mb-4">
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold liquid-pill-indigo">
+          Section 01 // About & Bio
+        </span>
+        <span className="glass-pill px-2.5 py-1 text-[0.72rem] text-[#716E68] font-mono">
+          [Student Profile]
+        </span>
+      </div>
+
       {/* Main Identity: Balanced 2-Column Grid on Wide Screens */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Monogram, Name, Role, Bio & Highlights */}
@@ -73,13 +84,43 @@ export function Header({ profile }: HeaderProps) {
             </div>
           </div>
 
-          {/* Grounded Bio */}
-          <p className="text-[0.98rem] leading-[1.75] text-[#131210]/90 font-sans max-w-2xl">
-            {profile.bio}
-          </p>
+          {/* Introduction */}
+          <div className="p-4 rounded-[12px] glass-panel-subtle border border-white/70 dark:border-white/10 text-[0.95rem] leading-[1.7] text-[#131210] dark:text-[#ECE9E2]">
+            <span className="font-mono text-[0.7rem] uppercase tracking-wider text-[#E6552F] font-semibold block mb-1">
+              Introduction
+            </span>
+            {profile.introduction}
+          </div>
+
+          {/* Short Personal Bio */}
+          <div className="space-y-1.5">
+            <span className="font-mono text-[0.7rem] uppercase tracking-wider text-[#716E68] font-semibold block">
+              Personal Bio
+            </span>
+            <p className="text-[0.92rem] leading-[1.7] text-[#131210]/85 dark:text-[#DCD8D0] font-sans max-w-2xl">
+              {profile.bio}
+            </p>
+          </div>
+
+          {/* Academic & Career Interests (Card 2 requirement) */}
+          <div className="pt-2">
+            <span className="font-mono text-[0.7rem] uppercase tracking-wider text-[#716E68] font-semibold block mb-2.5">
+              Academic & Career Interests
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {profile.careerInterests.map((interest) => (
+                <span
+                  key={interest}
+                  className="font-mono text-[0.72rem] px-3 py-1.5 rounded-[6px] glass-pill text-[#131210] dark:text-[#ECE9E2] border border-white/60 dark:border-white/10 hover:border-[#E6552F]/40 transition-colors"
+                >
+                  {interest}
+                </span>
+              ))}
+            </div>
+          </div>
 
           {/* Core Trajectory Badges with Liquid Glass Styling */}
-          <div className="flex flex-wrap items-center gap-2.5 pt-1 font-mono text-[0.72rem]">
+          <div className="flex flex-wrap items-center gap-2.5 pt-2 font-mono text-[0.72rem]">
             <span className="liquid-pill-emerald px-3.5 py-1.5 rounded-full font-medium flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
               {profile.education}
@@ -91,10 +132,13 @@ export function Header({ profile }: HeaderProps) {
           </div>
         </div>
 
-        {/* Right Column: Live Telemetry & Engineering Overview Glass Card with Liquid Prism Edge */}
-        <div className="lg:col-span-5 xl:col-span-4 glass-panel p-5 sm:p-6 rounded-[14px] shadow-lg border border-white/80 dark:border-white/10 relative overflow-hidden space-y-4">
+        {/* Right Column: Interactive Liquid Glass Telemetry Card */}
+        <LiquidGlassCard
+          className="lg:col-span-5 xl:col-span-4 glass-panel p-5 sm:p-6 rounded-[16px] shadow-xl border border-white/80 dark:border-white/10 space-y-4"
+          accentGlow="#10B981"
+        >
           {/* Top Liquid Prism Highlight */}
-          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-emerald-400 via-indigo-500 to-[#E6552F]" />
+          <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-emerald-400 via-indigo-500 to-[#E6552F] pointer-events-none" />
 
           <div className="flex items-center justify-between pb-3 border-b border-[rgba(113,110,104,0.15)]">
             <span className="font-mono text-[0.7rem] uppercase tracking-wider text-[#716E68] font-semibold flex items-center gap-2">
@@ -158,7 +202,7 @@ export function Header({ profile }: HeaderProps) {
               ))}
             </div>
           </div>
-        </div>
+        </LiquidGlassCard>
       </div>
     </header>
   );

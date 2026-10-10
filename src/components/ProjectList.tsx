@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Project } from "@/data/portfolioData";
 import { ChevronDown, ArrowUpRight, ExternalLink, Sparkles, Film, Database, ShieldCheck } from "lucide-react";
+import { LiquidGlassCard } from "@/components/LiquidGlassCard";
 
 interface ProjectListProps {
   projects: Project[];
@@ -35,10 +36,10 @@ export function ProjectList({ projects }: ProjectListProps) {
       <div className="flex items-baseline justify-between mb-6">
         <div>
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold liquid-pill-vermilion mb-2">
-            Section 01
+            Section 04 // Projects
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-semibold text-[#131210]">
-            Selected Systems <span className="font-serif italic font-normal text-inherit px-0.5">&</span> Builds
+            Projects <span className="font-serif italic font-normal text-inherit px-0.5">&</span> Production Systems
           </h2>
         </div>
         <span className="glass-pill px-2.5 py-1 text-[0.72rem] text-[#716E68]">
@@ -47,11 +48,15 @@ export function ProjectList({ projects }: ProjectListProps) {
       </div>
 
       <p className="text-[0.92rem] text-[#716E68] font-sans max-w-xl mb-6">
-        High-density ledger of full-stack engineering, media tracking architectures, and production web applications.
+        Real-world applications built from scratch, complete with architecture descriptions, tech stacks, GitHub source repositories, and live demo interfaces.
       </p>
 
-      {/* Projects Glassmorphic Tabular List */}
-      <div className="glass-panel rounded-[12px] overflow-hidden divide-y divide-[rgba(113,110,104,0.15)] shadow-lg">
+      {/* Projects Glassmorphic Tabular List with Mouse Caustics */}
+      <LiquidGlassCard
+        className="glass-panel rounded-[18px] overflow-hidden divide-y divide-[rgba(113,110,104,0.15)] shadow-xl border border-white/80 dark:border-white/10"
+        accentGlow="#E6552F"
+        tilt={false}
+      >
         {projects.map((project, index) => {
           const isExpanded = expandedIndex === index;
 
@@ -235,7 +240,7 @@ export function ProjectList({ projects }: ProjectListProps) {
             </div>
           );
         })}
-      </div>
+      </LiquidGlassCard>
     </section>
   );
 }

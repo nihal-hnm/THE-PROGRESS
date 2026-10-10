@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { EngineeringLog as EngineeringLogType } from "@/data/portfolioData";
+import { LiquidGlassCard } from "@/components/LiquidGlassCard";
 
 interface EngineeringLogProps {
   logs: EngineeringLogType[];
@@ -81,9 +82,10 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
           const isCompleted = log.status === "Completed";
 
           return (
-            <div
+            <LiquidGlassCard
               key={`${log.date}-${log.topic}`}
-              className="p-5 sm:p-6 rounded-[14px] glass-panel glass-card-hover flex flex-col justify-between border border-white/80 dark:border-white/10 shadow-lg relative overflow-hidden group"
+              className="p-5 sm:p-6 rounded-[16px] glass-panel glass-card-hover flex flex-col justify-between border border-white/80 dark:border-white/10 shadow-lg group"
+              accentGlow={isBuilding ? "#E6552F" : isCompleted ? "#10B981" : "#6366F1"}
             >
               {/* Liquid Top Prism Refraction Line */}
               <div
@@ -166,7 +168,7 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
                   );
                 })}
               </div>
-            </div>
+            </LiquidGlassCard>
           );
         })}
 

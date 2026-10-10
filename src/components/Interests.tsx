@@ -3,6 +3,7 @@
 import React from "react";
 import { InterestItem } from "@/data/portfolioData";
 import { Film, Layers, Palette, Gamepad2, Sparkles, CheckCircle2 } from "lucide-react";
+import { LiquidGlassCard } from "@/components/LiquidGlassCard";
 
 interface InterestsProps {
   interests: InterestItem[];
@@ -74,9 +75,10 @@ export function Interests({ interests }: InterestsProps) {
               : "lg:col-span-7";
 
           return (
-            <div
+            <LiquidGlassCard
               key={item.id}
-              className={`${colSpan} glass-panel glass-card-hover p-6 sm:p-7 rounded-[18px] border border-white/80 dark:border-white/10 shadow-lg relative overflow-hidden flex flex-col justify-between group`}
+              className={`${colSpan} glass-panel glass-card-hover p-6 sm:p-7 rounded-[18px] border border-white/80 dark:border-white/10 shadow-lg group`}
+              accentGlow={item.accentColor}
             >
               {/* Top Accent Liquid Prism Line */}
               <div
@@ -173,7 +175,7 @@ export function Interests({ interests }: InterestsProps) {
                   </span>
                 ))}
               </div>
-            </div>
+            </LiquidGlassCard>
           );
         })}
       </div>

@@ -5,6 +5,7 @@ import { Copy, Check, ArrowUp, ArrowUpRight } from "lucide-react";
 import { DeveloperProfile } from "@/data/portfolioData";
 import { PlatformIcon } from "@/components/PlatformIcon";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LiquidGlassCard } from "@/components/LiquidGlassCard";
 
 interface FooterProps {
   email: string;
@@ -31,10 +32,13 @@ export function Footer({ email, name, links }: FooterProps) {
 
   return (
     <footer className="pt-12 pb-16 text-[#716E68]">
-      {/* Top Footer Callout with Frosted Glass & Ambient Glow */}
-      <div className="glass-panel p-6 sm:p-8 rounded-[16px] mb-8 flex flex-col gap-6 relative overflow-hidden shadow-xl border border-white/80 dark:border-white/10">
+      {/* Top Footer Callout with Interactive Liquid Glass & Ambient Glow */}
+      <LiquidGlassCard
+        className="glass-panel p-6 sm:p-8 rounded-[18px] mb-8 flex flex-col gap-6 shadow-xl border border-white/80 dark:border-white/10"
+        accentGlow="#E6552F"
+      >
         {/* Top vibrant multi-stop gradient line */}
-        <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#E6552F] via-[#F59E0B] via-[#10B981] via-[#06B6D4] to-[#6366F1]" />
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#E6552F] via-[#F59E0B] via-[#10B981] via-[#06B6D4] to-[#6366F1] pointer-events-none" />
         
         {/* Glowing background washes */}
         <div className="absolute top-0 right-0 w-96 h-full bg-gradient-to-l from-[#E6552F]/15 via-[#6366F1]/10 to-transparent pointer-events-none" />
@@ -42,42 +46,55 @@ export function Footer({ email, name, links }: FooterProps) {
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative z-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-500/25 text-[0.7rem] font-mono mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Open to Opportunities</span>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-mono text-[0.7rem] uppercase tracking-wider font-semibold liquid-pill-vermilion">
+                Section 05 // Footer & Contact
+              </span>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 border border-emerald-500/25 text-[0.7rem] font-mono">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Open for Collaboration</span>
+              </div>
             </div>
             <h3 className="text-xl sm:text-2xl font-display font-semibold text-[#131210] dark:text-[#F3F1EC] mb-1.5">
-              Initiate Collaboration
+              Get in Touch with {name}
             </h3>
             <p className="text-[0.9rem] text-[#716E68] dark:text-[#A8A49C] font-sans">
-              Available for internships, full-stack engineering roles, and collaborative software builds.
+              Undergraduate Full-Stack Engineer at NIAT x Geeta University. Available for internships, engineering roles, and collaborative builds.
             </p>
           </div>
 
           {/* Copy Email Button with Subtle Glow */}
-          <button
-            onClick={handleCopyEmail}
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#131210] dark:bg-[#1C1A17] hover:bg-[#2c2a26] text-[#FFFFFF] font-mono text-[0.75rem] font-medium transition-all duration-200 cursor-pointer shrink-0 shadow-[0_4px_16px_rgba(230,85,47,0.2)] hover:shadow-[0_6px_20px_rgba(230,85,47,0.35)] hover:-translate-y-0.5 border border-white/10"
-          >
-            {copied ? (
-              <>
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="text-emerald-300 font-semibold">Copied {email}</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-3.5 h-3.5 text-[#E6552F]" />
-                <span>Copy {email}</span>
-              </>
-            )}
-          </button>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
+            <a
+              href={`mailto:${email}`}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#E6552F] hover:bg-[#d04622] text-white font-mono text-[0.75rem] font-medium transition-all duration-200 cursor-pointer shadow-[0_4px_16px_rgba(230,85,47,0.35)] hover:-translate-y-0.5 text-center"
+            >
+              <span>Email Directly</span>
+            </a>
+            <button
+              onClick={handleCopyEmail}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#131210] dark:bg-[#1C1A17] hover:bg-[#2c2a26] text-[#FFFFFF] font-mono text-[0.75rem] font-medium transition-all duration-200 cursor-pointer shadow-[0_4px_16px_rgba(230,85,47,0.2)] hover:shadow-[0_6px_20px_rgba(230,85,47,0.35)] hover:-translate-y-0.5 border border-white/10"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="text-emerald-300 font-semibold">Copied {email}</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5 text-[#E6552F]" />
+                  <span>Copy {email}</span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Social Platforms Row in the Callout */}
         {links && links.length > 0 && (
           <div className="pt-5 border-t border-[rgba(113,110,104,0.15)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 relative z-10">
             <span className="font-mono text-[0.72rem] tracking-wider uppercase text-[#716E68] dark:text-[#A8A49C] font-medium">
-              Connect Across Platforms:
+              Verified Profiles & Channels:
             </span>
             <div className="flex flex-wrap items-center gap-2">
               {links.map((link) => {
@@ -131,23 +148,25 @@ export function Footer({ email, name, links }: FooterProps) {
             </div>
           </div>
         )}
-      </div>
+      </LiquidGlassCard>
 
-      {/* Bottom Minimalist Bar */}
+      {/* Bottom Minimalist Bar with Explicit Copyright & Student Info (Card 6) */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[0.75rem] font-mono border-t border-[rgba(113,110,104,0.15)] pt-6">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="text-[#131210] font-medium">{name}</span>
-          <span className="text-[#DCD8D0]">/</span>
-          <span>Editorial Engineering Portfolio</span>
-          <span className="text-[#DCD8D0]">/</span>
-          <span className="text-[#716E68]">Crafted with Next.js & Tailwind</span>
+          <span className="text-[#131210] dark:text-[#F3F1EC] font-semibold">
+            © 2026 {name}. All rights reserved.
+          </span>
+          <span className="text-[#DCD8D0] dark:text-white/20">/</span>
+          <span className="text-[#716E68] dark:text-[#A8A49C]">NIAT x Geeta University</span>
+          <span className="text-[#DCD8D0] dark:text-white/20">/</span>
+          <span className="text-[#716E68] dark:text-[#A8A49C]">Built with Next.js 16 & Tailwind CSS</span>
         </div>
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <button
             onClick={scrollToTop}
-            className="glass-pill px-3 py-1.5 rounded-full inline-flex items-center gap-1.5 text-[#716E68] hover:text-[#131210] transition-colors cursor-pointer"
+            className="glass-pill px-3 py-1.5 rounded-full inline-flex items-center gap-1.5 text-[#716E68] hover:text-[#131210] dark:hover:text-[#F3F1EC] transition-colors cursor-pointer"
           >
             <span>Return to top</span>
             <ArrowUp className="w-3 h-3 text-[#E6552F]" />

@@ -52,6 +52,15 @@ export interface DeveloperProfile {
   education: string;
   availability: string;
   bio: string;
+  introduction: string;
+  careerInterests: string[];
+  educationDetails: {
+    institution: string;
+    program: string;
+    duration: string;
+    status: string;
+    academicHighlights: string[];
+  };
   email: string;
   links: {
     label: string;
@@ -67,7 +76,26 @@ export const developerProfile: DeveloperProfile = {
   location: "India",
   education: "B.Tech in Computer Science & Engineering — NIAT x Geeta University",
   availability: "Available for internships & builds",
+  introduction: "Hi, I'm Nihal Mahore — a full-stack engineer and computer science undergraduate passionate about architecting resilient web applications, distributed databases, and high-performance interactive interfaces.",
   bio: "Computer Science undergraduate at NIAT x Geeta University with a keen interest in mastering modern tech stacks, new-generation web technologies, and full-stack software development. Driven by building thoughtful, real-world digital products with high attention to user experience and clean architecture.",
+  careerInterests: [
+    "Full-Stack Web Architecture & Cloud Systems",
+    "Next-Gen Frontend Runtimes & Micro-Interactions (React 19, Next.js)",
+    "Relational Database Modeling & Row-Level Security (Supabase / PostgreSQL)",
+    "High-Efficiency Algorithmic Design & Automation (Python)",
+  ],
+  educationDetails: {
+    institution: "NIAT x Geeta University",
+    program: "B.Tech in Computer Science & Engineering",
+    duration: "2024 – 2028",
+    status: "Active Undergraduate Student",
+    academicHighlights: [
+      "Core Computing Principles & Applied Systems",
+      "Data Structures & Algorithmic Problem Solving",
+      "Relational Database Management & Cloud Infrastructure",
+      "Modern Web Development & Production Software Engineering",
+    ],
+  },
   email: "harshmahore240@gmail.com",
   links: [
     { label: "GitHub", url: "https://github.com/nihal-hnm", platform: "github" },
@@ -165,24 +193,38 @@ export const milestones: Milestone[] = [
 
 export const toolboxCategories: ToolboxCategory[] = [
   {
-    category: "Languages",
-    description: "Core programming languages and web foundations",
-    items: ["HTML5 & CSS3", "Python", "JavaScript", "TypeScript"],
+    category: "Programming Languages",
+    description: "Core languages for software engineering and dynamic web applications",
+    items: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "Python"],
   },
   {
-    category: "Frontend & Web Frameworks",
-    description: "Modern application frameworks and component systems",
-    items: ["Next.js 16 (App Router)", "React 19", "Tailwind CSS v4", "Lucide React"],
+    category: "Technical Skills",
+    description: "Architectural disciplines, design patterns, and engineering capabilities",
+    items: [
+      "Full-Stack Web Architecture",
+      "RESTful API Design & Integration",
+      "Relational Database Modeling",
+      "Row-Level Security (RLS)",
+      "Optimistic State Synchronization",
+      "Responsive Layout Engineering",
+    ],
   },
   {
-    category: "Backend, Database & APIs",
-    description: "Cloud database persistence, authentication, and external data services",
-    items: ["Supabase", "PostgreSQL", "Row-Level Security (RLS)", "REST APIs", "TMDB API"],
+    category: "Tools",
+    description: "Modern developer tooling, IDEs, version control, and continuous deployment",
+    items: ["Git", "GitHub", "VS Code", "Vercel", "Zod", "npm / pnpm"],
   },
   {
-    category: "Tools & Workflow",
-    description: "Developer tooling, version control, and continuous delivery",
-    items: ["Git", "GitHub", "VS Code", "Zod", "Vercel"],
+    category: "Technologies",
+    description: "Next-gen frameworks, libraries, cloud databases, and runtime platforms",
+    items: [
+      "Next.js 16 (App Router)",
+      "React 19",
+      "Tailwind CSS v4",
+      "Supabase (PostgreSQL)",
+      "TMDB API",
+      "Lucide React",
+    ],
   },
 ];
 

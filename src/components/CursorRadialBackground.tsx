@@ -1,107 +1,127 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 export function CursorRadialBackground() {
-  const [mounted, setMounted] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
-
+  const containerRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true);
+    const glowEl = glowRef.current;
+    const containerEl = containerRef.current;
+    if (!glowEl || !containerEl) return;
 
-    let visible = false;
+    let hasEntered = false;
 
+    // Direct hardware-synchronous position update with ZERO delay
     const updatePosition = (clientX: number, clientY: number) => {
-      if (glowRef.current) {
-        glowRef.current.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
-      }
+      glowEl.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
       document.documentElement.style.setProperty("--cursor-x", `${clientX}px`);
       document.documentElement.style.setProperty("--cursor-y", `${clientY}px`);
     };
 
-    // Initial positioning
-    updatePosition(window.innerWidth / 2, window.innerHeight * 0.38);
+    // Center initially before first cursor interaction
+    updatePosition(window.innerWidth / 2, window.innerHeight * 0.4);
 
     const handlePointerMove = (e: PointerEvent) => {
-      // Immediate, zero-delay 1:1 hardware tracking
       updatePosition(e.clientX, e.clientY);
-      if (!visible) {
-        visible = true;
-        setIsVisible(true);
+      if (!hasEntered) {
+        hasEntered = true;
+        containerEl.style.opacity = "1";
       }
     };
 
     const handlePointerLeave = () => {
-      visible = false;
-      setIsVisible(false);
+      hasEntered = false;
+      containerEl.style.opacity = "0";
     };
 
     const handlePointerEnter = (e: MouseEvent) => {
       updatePosition(e.clientX, e.clientY);
-      visible = true;
-      setIsVisible(true);
+      hasEntered = true;
+      containerEl.style.opacity = "1";
     };
 
-    const handleMouseDown = () => setIsClicking(true);
-    const handleMouseUp = () => setIsClicking(false);
-
-    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    // Use capturing listener to guarantee immediate execution before any bubbling delay
+    window.addEventListener("pointermove", handlePointerMove, { passive: true, capture: true });
     document.addEventListener("mouseleave", handlePointerLeave);
     document.addEventListener("mouseenter", handlePointerEnter);
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
 
     return () => {
-      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointermove", handlePointerMove, { capture: true });
       document.removeEventListener("mouseleave", handlePointerLeave);
       document.removeEventListener("mouseenter", handlePointerEnter);
-      window.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mouseup", handleMouseUp);
     };
   }, []);
 
-  if (!mounted) return null;
-
   return (
     <div
+      ref={containerRef}
       aria-hidden="true"
-      className={`fixed inset-0 pointer-events-none z-0 overflow-hidden transition-opacity duration-300 ease-out ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      style={{ opacity: 0, transition: "opacity 0.4s ease-out" }}
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
     >
-      {/* Immediate Zero-Delay Cursor Anchor (No CSS transition on position) */}
+      {/* 
+        Zero-Lag Hardware Accelerated Anchor:
+        Element is 1200px x 1200px, centered exactly via -600px margins.
+        Translate3d moves it in 1:1 direct lockstep with mouse cursor on the GPU compositor thread.
+        NO CSS transitions on transform, guaranteeing 0ms latency.
+      */}
       <div
         ref={glowRef}
-        style={{ willChange: "transform" }}
-        className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        style={{
+          width: "1200px",
+          height: "1200px",
+          marginLeft: "-600px",
+          marginTop: "-600px",
+          willChange: "transform",
+          transition: "none",
+        }}
+        className="absolute top-0 left-0 pointer-events-none"
       >
-        {/* Click-response tactile wrapper */}
-        <div
-          className={`relative transition-transform duration-150 ease-out ${
-            isClicking ? "scale-90 brightness-125" : "scale-100"
-          }`}
-        >
-          {/* TIER 3: Grand Atmospheric Cinema Wash (1350px) */}
-          <div className="absolute -translate-x-1/2 -translate-y-1/2 w-[1350px] h-[1350px] rounded-full">
-            <div className="absolute inset-0 rounded-full dark:hidden bg-[radial-gradient(circle,rgba(245,158,11,0.14)_0%,rgba(230,85,47,0.06)_42%,rgba(245,158,11,0.02)_65%,transparent_78%)] blur-[100px] opacity-85" />
-            <div className="absolute inset-0 rounded-full hidden dark:block bg-[radial-gradient(circle,rgba(124,58,237,0.25)_0%,rgba(59,130,246,0.16)_38%,rgba(255,97,54,0.08)_60%,transparent_78%)] blur-[110px] opacity-90" />
-          </div>
+        {/*
+          1. Expansive Ambient Radiance (1200px Diameter):
+          Evenly distributed, smooth mathematical Hermite falloff.
+          Eliminates concentrated hot-spots and harsh borders.
+        */}
+        <div className="absolute inset-0 rounded-full pointer-events-none">
+          {/* Light Mode: Warm champagne, soft editorial vermilion, evenly diffused */}
+          <div
+            className="absolute inset-0 rounded-full dark:hidden"
+            style={{
+              background:
+                "radial-gradient(circle at center, rgba(245, 158, 11, 0.15) 0%, rgba(249, 115, 22, 0.11) 28%, rgba(230, 85, 47, 0.07) 50%, rgba(245, 158, 11, 0.03) 72%, transparent 92%)",
+            }}
+          />
 
-          {/* TIER 2: Mid-Body Chromatic Bloom (850px) */}
-          <div className="absolute -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] rounded-full">
-            <div className="absolute inset-0 rounded-full dark:hidden bg-[radial-gradient(circle,rgba(245,158,11,0.22)_0%,rgba(230,85,47,0.12)_36%,rgba(249,115,22,0.04)_62%,transparent_78%)] blur-3xl opacity-90" />
-            <div className="absolute inset-0 rounded-full hidden dark:block bg-[radial-gradient(circle,rgba(99,102,241,0.32)_0%,rgba(139,92,246,0.20)_35%,rgba(6,182,212,0.09)_58%,transparent_76%)] blur-3xl opacity-95" />
-          </div>
-
-          {/* TIER 1: Focused Vibrant Core Spotlight (420px) */}
-          <div className="absolute -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full">
-            <div className="absolute inset-0 rounded-full dark:hidden bg-[radial-gradient(circle,rgba(230,85,47,0.35)_0%,rgba(245,158,11,0.20)_34%,rgba(230,85,47,0.05)_64%,transparent_80%)] blur-2xl" />
-            <div className="absolute inset-0 rounded-full hidden dark:block bg-[radial-gradient(circle,rgba(255,97,54,0.48)_0%,rgba(244,63,94,0.30)_32%,rgba(168,85,247,0.14)_60%,transparent_78%)] blur-2xl" />
-          </div>
+          {/* Dark Mode: Cosmic twilight violet, soft indigo, gentle cyan & ember */}
+          <div
+            className="absolute inset-0 rounded-full hidden dark:block"
+            style={{
+              background:
+                "radial-gradient(circle at center, rgba(124, 58, 237, 0.20) 0%, rgba(99, 102, 241, 0.14) 28%, rgba(6, 182, 212, 0.07) 52%, rgba(255, 97, 54, 0.025) 74%, transparent 92%)",
+            }}
+          />
         </div>
+
+        {/*
+          2. Outer Atmospheric Horizon (1400px Wide Feathered Undercurrent):
+          Subtle broad glow for continuous viewport illumination without sharp boundaries.
+        */}
+        <div
+          className="absolute -inset-24 rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(230, 85, 47, 0.04) 0%, rgba(245, 158, 11, 0.018) 45%, transparent 75%)",
+          }}
+        />
+        <div
+          className="absolute -inset-24 rounded-full pointer-events-none hidden dark:block"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.025) 45%, transparent 75%)",
+          }}
+        />
       </div>
     </div>
   );

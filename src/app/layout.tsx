@@ -58,7 +58,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${playfair.variable} ${jakarta.variable} ${jetbrainsMono.variable} antialiased selection:bg-[#E6552F] selection:text-white`}
+      className={`dark ${playfair.variable} ${jakarta.variable} ${jetbrainsMono.variable} antialiased selection:bg-[#E6552F] selection:text-white`}
     >
       <head>
         <script
@@ -66,13 +66,15 @@ export default function RootLayout({
             __html: `
               try {
                 const savedTheme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                  document.documentElement.classList.add('dark');
-                } else {
+                // Default to dark mode unless explicitly set to light
+                if (savedTheme === 'light') {
                   document.documentElement.classList.remove('dark');
+                } else {
+                  document.documentElement.classList.add('dark');
                 }
-              } catch (e) {}
+              } catch (e) {
+                document.documentElement.classList.add('dark');
+              }
             `,
           }}
         />
