@@ -21,7 +21,11 @@ Full Name: Nihal Mahore
 * **Tech Stack & Skills:**interest in learning tech stacks , new gen technologies and more about ongoing tech.
   * Languages: Html & css, python
   * Frameworks & Libraries: 
-  * Databases & Cloud / Tools: 
+* **Interests & Passions:**
+  * Cinema, Film Curation & Media Tracking (Couch Critics inspiration, narrative pacing, streaming APIs)
+  * Modern Web Architecture & Cloud Systems (Next.js 16, React 19, Supabase RLS, distributed state)
+  * UI/UX Product Design & Micro-Interactions (Glassmorphism, spatial layout, tactile feedback)
+  * Gaming, Pop Culture & Sci-Fi Media (Interactive lore, futuristic world-building, diegetic HUDs)
 
 ---
 

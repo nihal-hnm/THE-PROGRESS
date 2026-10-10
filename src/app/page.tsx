@@ -5,12 +5,14 @@ import {
   engineeringLogs,
   milestones,
   toolboxCategories,
+  interests,
 } from "@/data/portfolioData";
 import { Header } from "@/components/Header";
 import { ProjectList } from "@/components/ProjectList";
 import { EngineeringLog } from "@/components/EngineeringLog";
 import { Milestones } from "@/components/Milestones";
 import { Toolbox } from "@/components/Toolbox";
+import { Interests } from "@/components/Interests";
 import { Footer } from "@/components/Footer";
 import { CursorRadialBackground } from "@/components/CursorRadialBackground";
 
@@ -48,6 +50,9 @@ export default function Home() {
 
         {/* Monospace Toolbox & Environment (Interactive glass cards) */}
         <Toolbox categories={toolboxCategories} />
+
+        {/* Bento Grid: Interests, Passions & Explorations */}
+        <Interests interests={interests} />
 
         {/* Minimalist Footer with frosted glass callout and socials */}
         <Footer

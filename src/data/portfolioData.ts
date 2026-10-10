@@ -31,6 +31,19 @@ export interface ToolboxCategory {
   items: string[];
 }
 
+export interface InterestItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  description: string;
+  highlights: string[];
+  tags: string[];
+  icon: "film" | "code" | "palette" | "gamepad";
+  accentColor: string;
+  badge: string;
+}
+
 export interface DeveloperProfile {
   name: string;
   handle: string;
@@ -170,5 +183,76 @@ export const toolboxCategories: ToolboxCategory[] = [
     category: "Tools & Workflow",
     description: "Developer tooling, version control, and continuous delivery",
     items: ["Git", "GitHub", "VS Code", "Zod", "Vercel"],
+  },
+];
+
+export const interests: InterestItem[] = [
+  {
+    id: "cinema",
+    title: "Cinema, Film Curation & Media Tracking",
+    subtitle: "Narrative storytelling, visual direction & OTT architecture",
+    category: "Storytelling & Arts",
+    description:
+      "Passionate cinephile with an appreciation for deep narrative world-building, screenwriting, and cinematic pacing. This passion served as the primary genesis behind building Couch Critics — logging journeys, tracking episodic progress, and solving OTT fragmentation.",
+    highlights: [
+      "Currently watching & analyzing: Vinland Saga, Suits, Succession, Pulp Fiction, Dune",
+      "Tracking streaming catalog APIs and regional OTT provider metadata",
+      "Exploring cinematic color grading, soundtrack composition, and episodic tension",
+    ],
+    tags: ["Film Curation", "Cinema Journal", "OTT Providers", "Screenwriting", "TMDB Telemetry"],
+    icon: "film",
+    accentColor: "#E6552F",
+    badge: "Core Inspiration",
+  },
+  {
+    id: "web-architecture",
+    title: "Modern Web Architecture & Cloud Systems",
+    subtitle: "Reactive runtimes, distributed databases & high-performance frontends",
+    category: "Engineering Focus",
+    description:
+      "Constantly exploring bleeding-edge web infrastructure, serverless runtimes, and relational database paradigms. Driven by clean architecture, Row-Level Security, and optimistic UI transitions that feel instant.",
+    highlights: [
+      "Hands-on building with Next.js 16 App Router, React 19 concurrent features, and Turbopack",
+      "Architecting secure, isolated backend persistence using Supabase (PostgreSQL) and RLS",
+      "Benchmarking optimistic client state synchronization against cloud endpoints",
+    ],
+    tags: ["Next.js 16", "React 19", "Supabase", "PostgreSQL", "Cloud Architecture"],
+    icon: "code",
+    accentColor: "#6366F1",
+    badge: "Active Pursuit",
+  },
+  {
+    id: "ui-ux-design",
+    title: "UI/UX Product Design & Micro-Interactions",
+    subtitle: "Glassmorphism, spatial layout & tactile feedback",
+    category: "Creative Craft",
+    description:
+      "Firm believer that software should not just work flawlessly—it should feel magical to interact with. Obsessed with refined design details: frosted glass refraction, dynamic ambient spotlights, silky physics, and typographic hierarchy.",
+    highlights: [
+      "Crafting multi-layered glassmorphic panels with backdrop filters and specular lighting",
+      "Engineering zero-latency hardware-accelerated cursor illumination and micro-animations",
+      "Designing responsive, content-dense layouts with bespoke editorial typography",
+    ],
+    tags: ["Glassmorphism", "Micro-Interactions", "Tailwind CSS v4", "Design Systems", "Motion Physics"],
+    icon: "palette",
+    accentColor: "#10B981",
+    badge: "Aesthetic Standard",
+  },
+  {
+    id: "gaming-scifi",
+    title: "Gaming, Pop Culture & Sci-Fi Media",
+    subtitle: "Immersive lore, virtual world-building & interactive mechanics",
+    category: "Media & Exploration",
+    description:
+      "Fascinated by immersive gaming worlds, speculative sci-fi literature, and interactive media. Video games and futuristic narratives serve as an endless well of creative inspiration for intuitive user experience patterns and spatial interfaces.",
+    highlights: [
+      "Deep interest in dystopian cyberpunk aesthetics, retro-futurism, and sci-fi universes",
+      "Studying interactive HUDs, diegetic game interfaces, and player feedback loops",
+      "Exploring narrative branch design and game mechanics as models for user flows",
+    ],
+    tags: ["Interactive Lore", "Sci-Fi Aesthetics", "Diegetic HUDs", "World-Building", "Pop Culture"],
+    icon: "gamepad",
+    accentColor: "#F59E0B",
+    badge: "Creative Horizon",
   },
 ];
