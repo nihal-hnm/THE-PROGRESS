@@ -43,7 +43,7 @@ export interface DeveloperProfile {
   links: {
     label: string;
     url: string;
-    monoLabel: string;
+    platform: "github" | "linkedin" | "instagram" | "email";
   }[];
 }
 
@@ -57,10 +57,10 @@ export const developerProfile: DeveloperProfile = {
   bio: "Computer Science undergraduate at NIAT x Geeta University with a keen interest in mastering modern tech stacks, new-generation web technologies, and full-stack software development. Driven by building thoughtful, real-world digital products with high attention to user experience and clean architecture.",
   email: "harshmahore240@gmail.com",
   links: [
-    { label: "GitHub", url: "https://github.com/nihal-hnm", monoLabel: "gh/nihal-hnm" },
-    { label: "LinkedIn", url: "https://www.linkedin.com/in/nihal-mahore-4981a1394/", monoLabel: "in/nihal-mahore" },
-    { label: "Instagram", url: "https://www.instagram.com/_harsh_mahore/", monoLabel: "ig/_harsh_mahore" },
-    { label: "Email", url: "mailto:harshmahore240@gmail.com", monoLabel: "mail/harshmahore" },
+    { label: "GitHub", url: "https://github.com/nihal-hnm", platform: "github" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/nihal-mahore-4981a1394/", platform: "linkedin" },
+    { label: "Instagram", url: "https://www.instagram.com/_harsh_mahore/", platform: "instagram" },
+    { label: "Email", url: "mailto:harshmahore240@gmail.com", platform: "email" },
   ],
 };
 
