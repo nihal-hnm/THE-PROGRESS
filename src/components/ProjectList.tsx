@@ -174,9 +174,9 @@ export function ProjectList({ projects }: ProjectListProps) {
                           <Database className="w-3.5 h-3.5 text-[#E6552F]" />
                           <span>Core Architecture & Implementation Highlights</span>
                         </h4>
-                        <ul className="space-y-2.5 text-[0.88rem] leading-[1.65] text-[#131210]">
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[0.88rem] leading-[1.65] text-[#131210]">
                           {project.highlights.map((highlight, hIndex) => (
-                            <li key={hIndex} className="flex items-start gap-2.5">
+                            <li key={hIndex} className="flex items-start gap-2.5 p-3 rounded-[8px] bg-white/40 dark:bg-white/5 border border-white/60 dark:border-white/10">
                               <span className="text-[#E6552F] font-mono text-[0.8rem] select-none mt-0.5">
                                 ▪
                               </span>

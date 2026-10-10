@@ -74,27 +74,26 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
         Continuous engineering telemetry replacing vanity percentage bars. Practical deep dives, internals research, and build notes.
       </p>
 
-      {/* Changelog Ledger List with Frosted Glass Panels */}
-      <div className="glass-panel rounded-[12px] divide-y divide-[rgba(113,110,104,0.15)] shadow-lg overflow-hidden">
+      {/* Changelog Ledger 2-Column Grid of Frosted Glass Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {filteredLogs.map((log) => {
           return (
             <div
               key={`${log.date}-${log.topic}`}
-              className="p-5 sm:p-6 hover:bg-white/40 transition-colors duration-200"
+              className="p-5 sm:p-6 rounded-[12px] glass-panel glass-card-hover flex flex-col justify-between border border-white/80 shadow-md"
             >
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-                <div className="flex flex-wrap items-center gap-2.5">
+              <div>
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <span className="font-mono text-[0.75rem] text-[#716E68]">
                     {log.date}
                   </span>
-                  <span className="text-[#DCD8D0] select-none">/</span>
                   {/* Status Indicator Pill with Vibrant Glass Glow */}
                   <span className={`inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
                     log.status === "Currently Building"
                       ? "bg-[#E6552F]/10 border-[#E6552F]/30 text-[#E6552F]"
                       : log.status === "Completed"
-                      ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700"
-                      : "bg-indigo-500/10 border-indigo-500/30 text-indigo-700"
+                      ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-400"
+                      : "bg-indigo-500/10 border-indigo-500/30 text-indigo-700 dark:text-indigo-400"
                   }`}>
                     <span
                       className={`w-1.5 h-1.5 rounded-full ${
@@ -108,20 +107,20 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
                     <span className="font-medium">{log.status}</span>
                   </span>
                 </div>
+
+                {/* Topic Headline */}
+                <h3 className="text-base sm:text-lg font-heading text-[#131210] mb-2 font-medium leading-snug">
+                  {log.topic}
+                </h3>
+
+                {/* Notes */}
+                <p className="text-[0.88rem] leading-[1.65] text-[#131210]/85 font-sans mb-4">
+                  {log.notes}
+                </p>
               </div>
 
-              {/* Topic Headline */}
-              <h3 className="text-base sm:text-lg font-heading text-[#131210] mb-2 font-medium">
-                {log.topic}
-              </h3>
-
-              {/* Notes */}
-              <p className="text-[0.88rem] leading-[1.65] text-[#131210]/85 font-sans mb-3.5 max-w-2xl">
-                {log.notes}
-              </p>
-
               {/* Tags */}
-              <div className="flex flex-wrap items-center gap-1.5">
+              <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-[rgba(113,110,104,0.15)]">
                 {log.tags.map((tag) => (
                   <span
                     key={tag}
@@ -136,7 +135,7 @@ export function EngineeringLog({ logs }: EngineeringLogProps) {
         })}
 
         {filteredLogs.length === 0 && (
-          <div className="p-8 text-center text-[#716E68] font-mono text-[0.8rem]">
+          <div className="col-span-full p-8 text-center text-[#716E68] font-mono text-[0.8rem] glass-panel rounded-[12px]">
             No changelog entries matching current status filter.
           </div>
         )}

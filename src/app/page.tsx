@@ -32,8 +32,8 @@ export default function Home() {
         <div className="absolute -bottom-24 right-[10%] w-[580px] h-[580px] rounded-full bg-gradient-to-tl from-[#06B6D4]/16 via-[#3B82F6]/12 to-transparent blur-[130px] animate-float-reverse" />
       </div>
 
-      {/* Central Glassmorphic Column */}
-      <div className="max-w-3xl lg:max-w-4xl mx-auto px-5 sm:px-8 py-10 sm:py-16 relative z-10">
+      {/* Central Glassmorphic Column - Widescreen Layout */}
+      <div className="max-w-6xl xl:max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-10 sm:py-16 relative z-10">
         {/* Header / Identity with Glass Treatments */}
         <Header profile={developerProfile} />
 
