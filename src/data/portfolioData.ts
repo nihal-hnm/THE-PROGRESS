@@ -87,7 +87,7 @@ export const developerProfile: DeveloperProfile = {
   educationDetails: {
     institution: "NIAT x Geeta University",
     program: "B.Tech in Computer Science & Engineering",
-    duration: "2024 – 2028",
+    duration: "2026 – 2030",
     status: "Active Undergraduate Student",
     academicHighlights: [
       "Core Computing Principles & Applied Systems",

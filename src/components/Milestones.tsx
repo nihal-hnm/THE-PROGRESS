@@ -51,7 +51,7 @@ export function Milestones({ milestones }: MilestonesProps) {
 
           <div className="flex flex-wrap lg:flex-col items-start lg:items-end gap-2 font-mono text-[0.78rem]">
             <span className="glass-pill px-3.5 py-1.5 text-[#131210] dark:text-[#ECE9E2] font-semibold">
-              Duration: 2024 – 2028
+              Duration: 2026 – 2030
             </span>
             <span className="liquid-pill-emerald px-3.5 py-1 text-emerald-700 dark:text-emerald-300 font-medium">
               Status: Active Undergraduate
