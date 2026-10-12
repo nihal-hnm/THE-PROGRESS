@@ -81,45 +81,68 @@ export function CursorRadialBackground() {
       >
         {/*
           1. Expansive Ambient Radiance (1200px Diameter):
-          Evenly distributed, smooth mathematical Hermite falloff.
-          Eliminates concentrated hot-spots and harsh borders.
+          Evenly distributed mathematical falloff with vibrant luminous core.
         */}
         <div className="absolute inset-0 rounded-full pointer-events-none">
-          {/* Light Mode: Warm champagne, soft editorial vermilion, evenly diffused */}
+          {/* Light Mode: Warm radiant champagne amber, fiery vermilion core */}
           <div
             className="absolute inset-0 rounded-full dark:hidden"
             style={{
               background:
-                "radial-gradient(circle at center, rgba(245, 158, 11, 0.15) 0%, rgba(249, 115, 22, 0.11) 28%, rgba(230, 85, 47, 0.07) 50%, rgba(245, 158, 11, 0.03) 72%, transparent 92%)",
+                "radial-gradient(circle at center, rgba(230, 85, 47, 0.35) 0%, rgba(249, 115, 22, 0.25) 26%, rgba(245, 158, 11, 0.16) 50%, rgba(245, 158, 11, 0.05) 72%, transparent 90%)",
             }}
           />
 
-          {/* Dark Mode: Cosmic twilight violet, soft indigo, gentle cyan & ember */}
+          {/* Dark Mode: High-intensity multi-stop chromatic aurora (Violet -> Indigo -> Electric Cyan -> Warm Coral) */}
           <div
             className="absolute inset-0 rounded-full hidden dark:block"
             style={{
               background:
-                "radial-gradient(circle at center, rgba(124, 58, 237, 0.20) 0%, rgba(99, 102, 241, 0.14) 28%, rgba(6, 182, 212, 0.07) 52%, rgba(255, 97, 54, 0.025) 74%, transparent 92%)",
+                "radial-gradient(circle at center, rgba(147, 51, 234, 0.52) 0%, rgba(99, 102, 241, 0.40) 25%, rgba(6, 182, 212, 0.26) 50%, rgba(230, 85, 47, 0.12) 72%, transparent 90%)",
             }}
           />
         </div>
 
         {/*
-          2. Outer Atmospheric Horizon (1400px Wide Feathered Undercurrent):
+          2. Concentrated Inner Core Spotlight (520px Diameter):
+          Direct high-contrast luminous cursor aura for crisp spatial feedback.
+        */}
+        <div className="absolute inset-[340px] rounded-full pointer-events-none">
+          {/* Light Mode Core */}
+          <div
+            className="absolute inset-0 rounded-full dark:hidden"
+            style={{
+              background:
+                "radial-gradient(circle at center, rgba(230, 85, 47, 0.38) 0%, rgba(249, 115, 22, 0.22) 40%, transparent 75%)",
+            }}
+          />
+
+          {/* Dark Mode Core */}
+          <div
+            className="absolute inset-0 rounded-full hidden dark:block"
+            style={{
+              background:
+                "radial-gradient(circle at center, rgba(168, 85, 247, 0.60) 0%, rgba(99, 102, 241, 0.38) 35%, rgba(6, 182, 212, 0.22) 60%, transparent 78%)",
+            }}
+          />
+        </div>
+
+        {/*
+          3. Outer Atmospheric Horizon (1400px Wide Feathered Undercurrent):
           Subtle broad glow for continuous viewport illumination without sharp boundaries.
         */}
         <div
           className="absolute -inset-24 rounded-full pointer-events-none"
           style={{
             background:
-              "radial-gradient(circle at center, rgba(230, 85, 47, 0.04) 0%, rgba(245, 158, 11, 0.018) 45%, transparent 75%)",
+              "radial-gradient(circle at center, rgba(230, 85, 47, 0.12) 0%, rgba(245, 158, 11, 0.05) 45%, transparent 75%)",
           }}
         />
         <div
           className="absolute -inset-24 rounded-full pointer-events-none hidden dark:block"
           style={{
             background:
-              "radial-gradient(circle at center, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.025) 45%, transparent 75%)",
+              "radial-gradient(circle at center, rgba(99, 102, 241, 0.22) 0%, rgba(139, 92, 246, 0.12) 45%, transparent 75%)",
           }}
         />
       </div>

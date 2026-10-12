@@ -80,7 +80,7 @@ export function LiquidGlassCard({
         className="pointer-events-none absolute -inset-px rounded-[inherit] transition-opacity duration-300 z-10"
         style={{
           opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.10) 32%, rgba(255, 255, 255, 0.03) 60%, transparent 80%)`,
+          background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.16) 32%, rgba(255, 255, 255, 0.04) 60%, transparent 80%)`,
           mixBlendMode: "overlay",
         }}
       />
@@ -89,8 +89,8 @@ export function LiquidGlassCard({
       <div
         className="pointer-events-none absolute -inset-px rounded-[inherit] transition-opacity duration-300 z-10"
         style={{
-          opacity: isHovered ? 0.75 : 0,
-          background: `radial-gradient(550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.20) 0%, rgba(99, 102, 241, 0.12) 22%, rgba(6, 182, 212, 0.08) 42%, rgba(245, 158, 11, 0.05) 62%, transparent 82%)`,
+          opacity: isHovered ? 0.9 : 0,
+          background: `radial-gradient(550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.30) 0%, rgba(139, 92, 246, 0.24) 22%, rgba(6, 182, 212, 0.16) 42%, rgba(245, 158, 11, 0.08) 62%, transparent 82%)`,
           mixBlendMode: "screen",
         }}
       />

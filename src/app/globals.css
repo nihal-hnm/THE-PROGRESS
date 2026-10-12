@@ -400,13 +400,13 @@ html.dark .animate-float-reverse,
   filter: blur(180px) saturate(30%) brightness(0.65) !important;
 }
 
-/* Mouse spotlight & cursor follower suppression */
+/* Mouse spotlight & cursor follower high intensity */
 html.dark .fixed.z-0,
 .dark .fixed.z-0,
 html.dark .cursor-spotlight,
 .dark .cursor-spotlight {
-  opacity: 0.18 !important;
-  filter: saturate(35%) brightness(0.75) !important;
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 /* Orbs and ambient glows */
