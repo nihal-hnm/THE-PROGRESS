@@ -32,9 +32,9 @@ html.dark {
   --bg-foundation: #0B0D11;
   --text-primary: #F3F1EC;
   --text-secondary: #9E9A91;
-  --accent-vermilion: #FF6136;
+  --accent-vermilion: #D44825;
   --surface-card: #141720;
-  --border-line: rgba(255, 255, 255, 0.12);
+  --border-line: rgba(255, 255, 255, 0.10);
 }
 
 html {
@@ -101,15 +101,15 @@ html.dark body {
 }
 
 .dark .glass-panel {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.03) 45%, rgba(14, 18, 28, 0.6) 100%);
-  backdrop-filter: blur(30px) saturate(220%) contrast(108%) brightness(106%);
-  -webkit-backdrop-filter: blur(30px) saturate(220%) contrast(108%) brightness(106%);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 20px 52px -6px rgba(0, 0, 0, 0.7),
-              0 0 0 1px rgba(255, 255, 255, 0.06),
-              inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.35),
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 45%, rgba(14, 18, 28, 0.7) 100%);
+  backdrop-filter: blur(28px) saturate(115%) contrast(104%) brightness(98%);
+  -webkit-backdrop-filter: blur(28px) saturate(115%) contrast(104%) brightness(98%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 52px -6px rgba(0, 0, 0, 0.75),
+              0 0 0 1px rgba(255, 255, 255, 0.04),
+              inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.20),
               inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5),
-              inset 0 0 24px 0 rgba(255, 255, 255, 0.03);
+              inset 0 0 24px 0 rgba(255, 255, 255, 0.02);
 }
 
 .glass-panel-subtle {
@@ -123,12 +123,12 @@ html.dark body {
 }
 
 .dark .glass-panel-subtle {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(13, 17, 26, 0.55) 100%);
-  backdrop-filter: blur(20px) saturate(200%);
-  -webkit-backdrop-filter: blur(20px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(13, 17, 26, 0.6) 100%);
+  backdrop-filter: blur(20px) saturate(115%);
+  -webkit-backdrop-filter: blur(20px) saturate(115%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 28px -2px rgba(0, 0, 0, 0.5),
-              inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .glass-pill {
@@ -142,20 +142,20 @@ html.dark body {
 }
 
 .dark .glass-pill {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.04) 100%);
-  backdrop-filter: blur(16px) saturate(200%);
-  -webkit-backdrop-filter: blur(16px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(16px) saturate(115%);
+  -webkit-backdrop-filter: blur(16px) saturate(115%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 14px -1px rgba(0, 0, 0, 0.5),
-              inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.25);
+              inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.18);
   color: #ECE9E2;
 }
 
 .dark .glass-pill:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 100%);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.06) 100%);
+  border-color: rgba(255, 255, 255, 0.25);
   box-shadow: 0 6px 20px -2px rgba(0, 0, 0, 0.6),
-              inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
   color: #FFFFFF;
 }
 
@@ -191,12 +191,12 @@ html.dark body {
   color: #065f46;
 }
 .dark .liquid-pill-emerald {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
-  backdrop-filter: blur(14px) saturate(200%);
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.25), 0 2px 10px -1px rgba(16, 185, 129, 0.2);
-  color: #6ee7b7;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.10) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.18);
+  color: #86efac;
 }
 
 .liquid-pill-cyan {
@@ -208,11 +208,11 @@ html.dark body {
   color: #0e7490;
 }
 .dark .liquid-pill-cyan {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
-  backdrop-filter: blur(14px) saturate(200%);
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
-  border: 1px solid rgba(6, 182, 212, 0.35);
-  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.25), 0 2px 10px -1px rgba(6, 182, 212, 0.2);
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.10) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  border: 1px solid rgba(6, 182, 212, 0.22);
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.18);
   color: #67e8f9;
 }
 
@@ -225,11 +225,11 @@ html.dark body {
   color: #c2410c;
 }
 .dark .liquid-pill-vermilion {
-  background: linear-gradient(135deg, rgba(230, 85, 47, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
-  backdrop-filter: blur(14px) saturate(200%);
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
-  border: 1px solid rgba(230, 85, 47, 0.35);
-  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.25), 0 2px 10px -1px rgba(230, 85, 47, 0.2);
+  background: linear-gradient(135deg, rgba(212, 72, 37, 0.10) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  border: 1px solid rgba(212, 72, 37, 0.22);
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.18);
   color: #fdba74;
 }
 
@@ -242,11 +242,11 @@ html.dark body {
   color: #be123c;
 }
 .dark .liquid-pill-rose {
-  background: linear-gradient(135deg, rgba(244, 63, 94, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
-  backdrop-filter: blur(14px) saturate(200%);
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
-  border: 1px solid rgba(244, 63, 94, 0.35);
-  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.25), 0 2px 10px -1px rgba(244, 63, 94, 0.2);
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.10) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  border: 1px solid rgba(244, 63, 94, 0.22);
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.18);
   color: #fda4af;
 }
 
@@ -259,12 +259,12 @@ html.dark body {
   color: #4338ca;
 }
 .dark .liquid-pill-indigo {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
-  backdrop-filter: blur(14px) saturate(200%);
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
-  border: 1px solid rgba(99, 102, 241, 0.35);
-  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.25), 0 2px 10px -1px rgba(99, 102, 241, 0.2);
-  color: #a5b4fc;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.10) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.18);
+  color: #c7d2fe;
 }
 
 .liquid-pill-amber {
@@ -276,12 +276,12 @@ html.dark body {
   color: #b45309;
 }
 .dark .liquid-pill-amber {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
-  backdrop-filter: blur(14px) saturate(200%);
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.25), 0 2px 10px -1px rgba(245, 158, 11, 0.2);
-  color: #fcd34d;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.10) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  box-shadow: inset 0 1px 0.5px rgba(255, 255, 255, 0.18);
+  color: #fde68a;
 }
 
 /* Subtle Geometric Grid Matrix */
@@ -291,7 +291,7 @@ html.dark body {
 }
 
 .dark .bg-grid-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 /* Ambient Floating Animation */
@@ -381,3 +381,43 @@ html.dark .bg-white\/20 {
 html.dark .text-\[\#DCD8D0\] {
   color: rgba(255, 255, 255, 0.2);
 }
+
+/* ==========================================================================
+   Dark Theme Background Neon & Ambient Glow Reduction
+   Subdues high-saturation chromatic backdrops to a calm, refined editorial mood
+   ========================================================================== */
+html.dark .fixed.-z-10,
+.dark .fixed.-z-10 {
+  opacity: 0.15 !important;
+  filter: blur(40px) saturate(35%) brightness(0.75) !important;
+}
+
+html.dark .animate-float-slow,
+html.dark .animate-float-reverse,
+.dark .animate-float-slow,
+.dark .animate-float-reverse {
+  opacity: 0.10 !important;
+  filter: blur(180px) saturate(30%) brightness(0.65) !important;
+}
+
+/* Mouse spotlight & cursor follower suppression */
+html.dark .fixed.z-0,
+.dark .fixed.z-0,
+html.dark .cursor-spotlight,
+.dark .cursor-spotlight {
+  opacity: 0.18 !important;
+  filter: saturate(35%) brightness(0.75) !important;
+}
+
+/* Orbs and ambient glows */
+html.dark .orb,
+.dark .orb {
+  opacity: 0.04 !important;
+  filter: blur(180px) saturate(30%) !important;
+}
+
+html.dark .avatar-glow,
+.dark .avatar-glow {
+  opacity: 0.08 !important;
+}
+
