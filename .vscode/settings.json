@@ -1,3 +1,4 @@
 {
-    "autorunpro.godMode": true
+  "autorunpro.godMode": true,
+  "css.lint.unknownAtRules": "ignore"
 }
